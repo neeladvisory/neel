@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/login",
+      "destination": "https://neel-os-wheat.vercel.app/dashboard",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/",
       "permanent": true

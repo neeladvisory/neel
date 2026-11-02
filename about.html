@@ -100,6 +100,11 @@ a{color:inherit}
 @keyframes mnavIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .mnav summary:focus-visible,.mnav a:focus-visible{outline:2px solid #BDD3E5;outline-offset:3px}
 @media (prefers-reduced-motion: reduce){.mnav-grp[open] .mnav-subs{animation:none}.mnav-chev{transition:none}}
+.navlinks a{white-space:nowrap}
+@media (max-width: 1000px){.navlinks{display:none !important}.burger{display:inline-flex !important}}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:-10px;border-radius:50%;border:1.5px solid currentColor;text-decoration:none;transition:transform .3s cubic-bezier(.2,.9,.25,1.15),background .2s}
+.avatar:hover{transform:translateY(-2px);background:rgba(127,140,160,.14)}
+.avatar:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 </style>
 <script src="/js/site.js" defer></script>
 <script src="/_vercel/insights/script.js" defer></script>
@@ -121,6 +126,7 @@ a{color:inherit}
 <a href="/how-we-work" style="text-decoration: none">How we work</a>
 <a href="/about" aria-current="page" style="text-decoration: none">About</a>
 <a href="mailto:admin@neeladvisory.my" class="btn" style="background: #2B4B6F; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">Get in touch</a>
+<a href="/login" class="avatar" aria-label="Log in to NEEL OS" title="Log in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
 </nav>
 <button type="button" class="burger" data-menu-toggle aria-label="Open menu" aria-expanded="false" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1.5px solid #1B1D1F; border-radius: 999px; background: transparent; color: #1B1D1F; font: 600 14px Inter, sans-serif; cursor: pointer">Menu</button>
 </header>
@@ -254,6 +260,7 @@ a{color:inherit}
 <nav aria-label="Mobile" class="mnav"><a href="/" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.05s">Home</a><details class="mnav-grp menu-in" style="animation-delay: 0.1s"><summary style="color: #F4EFE4">Strategy &amp; Advisory<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/strategy-advisory" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/strategy-advisory#strategy-financial" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Strategy &amp; Financial</a><a href="/services/strategy-advisory#operations-systems" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Operations &amp; Systems</a><a href="/services/strategy-advisory#delivery-performance" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Delivery &amp; Performance</a></div></details><details class="mnav-grp menu-in" style="animation-delay: 0.15s"><summary style="color: #F4EFE4">AI &amp; Automations<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/ai-automations" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/ai-automations/sales-engine" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Sales Engine</a><a href="/services/ai-automations/front-desk" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Front Desk</a><a href="/services/ai-automations/customer-loop" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Customer Loop</a></div></details><a href="/how-we-work" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.2s">How we work</a><a href="/about" class="menu-in mnav-top" aria-current="page" style="color: #BDD3E5; font-style: italic; text-decoration: none; animation-delay: 0.25s">About</a></nav>
 <div class="menu-in" style="margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; gap: 14px; animation-delay: .3s">
 <a href="mailto:admin@neeladvisory.my" style="background: #F4EFE4; color: #1B1D1F; padding: 15px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; text-align: center">Get in touch</a>
+<a href="/login" style="border: 1.5px solid #F4EFE4; color: #F4EFE4; padding: 13.5px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; text-align: center">Log in</a>
 <div style="display: flex; justify-content: space-between; font-size: 14px; color: #DBE5EC"><span>admin@neeladvisory.my</span></div>
 </div>
 </div>
