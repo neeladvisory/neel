@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/login",
+      "destination": "https://app.neeladvisory.my/login",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/",
       "permanent": true
