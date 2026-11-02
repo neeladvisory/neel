@@ -1,0 +1,291 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><title>NEEL Office</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: a full-screen 3D office; HTML overlays (labels, dock, room panel) float on top of the canvas. */
+:root{
+  --bg:#eef2f6; --fg:#1b1d1f; --mute:#5c6b7a; --line:#bdd3e5; --card:#fbfcfd;
+  --hud:#2b4b6f; --deep:#1b3a5e; --sky:#799fc3; --soft:#dbe5ec; --ok:#2e7d4f; --warn:#b7791f; --bad:#b3261e;
+  --font-hud:"Chakra Petch",ui-sans-serif,system-ui,sans-serif; --font:"Inter",ui-sans-serif,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1720;--fg:#e8eef4;--mute:#9db0c2;--line:#2e4761;--card:#162233;--soft:#1e2f44;--sky:#8fb3d6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1720;--fg:#e8eef4;--mute:#9db0c2;--line:#2e4761;--card:#162233;--soft:#1e2f44;--sky:#8fb3d6;color-scheme:dark}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);overflow:hidden;-webkit-user-select:none;user-select:none}
+#stage{position:fixed;inset:0;touch-action:none}
+canvas{display:block}
+.readout{font-family:var(--font-hud);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+/* top bar */
+#top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;display:flex;align-items:center;gap:14px;padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));pointer-events:none}
+#top>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--font-hud);font-weight:700;letter-spacing:.08em;font-size:17px}
+.pill{background:var(--card);border:1px solid var(--line);padding:6px 10px;display:flex;gap:10px;align-items:center;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.pill b{color:var(--hud);font-family:var(--font-hud);font-size:15px}
+#agentline{margin-left:auto;color:var(--ok)}
+#agentline i{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:6px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+/* 3D labels */
+.lbl{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;cursor:pointer;white-space:nowrap;background:var(--card);border:1px solid var(--line);padding:5px 9px;display:flex;flex-direction:column;gap:1px;box-shadow:0 2px 10px rgba(27,58,94,.12);clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);transition:opacity .2s}
+.lbl .n{font-family:var(--font-hud);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--hud)}
+.lbl .v{font-size:12.5px;color:var(--fg)}
+.lbl .v b{font-family:var(--font-hud);font-size:14px}
+.lbl.av{padding:3px 7px;background:var(--hud);color:#f4efe4;border-color:var(--deep)}
+.lbl.av .n{color:#bdd3e5}
+.lbl.av .v{color:#f4efe4;font-size:11.5px}
+.lbl.warn .v b{color:var(--warn)} .lbl.bad .v b{color:var(--bad)} .lbl.ok .v b{color:var(--ok)}
+/* room panel */
+#panel{position:fixed;right:max(16px,env(safe-area-inset-right,0px));top:calc(env(safe-area-inset-top,0px) + 64px);width:min(360px,calc(100vw - 32px));max-height:calc(100vh - 220px);overflow:auto;z-index:6;background:var(--card);border:1px solid var(--hud);padding:14px 16px;box-shadow:0 8px 30px rgba(27,58,94,.18);clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+#panel h2{margin:0;font-family:var(--font-hud);font-size:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--hud);display:flex;justify-content:space-between;align-items:center}
+#panel h2 button{all:unset;cursor:pointer;font-size:12px;color:var(--mute);padding:4px 6px}
+#panel .lead{color:var(--mute);font-size:13px;margin:4px 0 10px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.stat{border:1px solid var(--line);padding:8px 10px}
+.stat b{display:block;font-family:var(--font-hud);font-size:20px;line-height:1.1;color:var(--hud);font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-hud);font-weight:600}
+.list{list-style:none;margin:0;padding:0;font-size:13px}
+.list li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.list li:last-child{border:0}
+.list .d{color:var(--mute);white-space:nowrap}
+.seg{height:7px;display:flex;gap:2px;margin-top:6px}.seg i{flex:1;background:var(--soft)}.seg i.on{background:var(--hud)}
+/* dock: mission + command bar */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:6;padding:8px max(16px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(to top,var(--bg) 70%,transparent);display:flex;flex-direction:column;gap:8px}
+#missions{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+#missions .m{flex:0 0 auto;background:var(--card);border:1px solid var(--line);padding:6px 10px;font-size:12.5px;display:flex;gap:8px;align-items:center;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+#missions .m i{width:8px;height:8px;background:var(--hud);transform:rotate(45deg);flex:none}
+#missions .m.need i{background:var(--warn)} #missions .m.done i{background:var(--ok)}
+#missions .m button{all:unset;cursor:pointer;color:var(--hud);font-family:var(--font-hud);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--hud)}
+#cmd{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--hud);padding:6px 6px 6px 12px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+#cmd .dia{width:10px;height:10px;background:var(--hud);transform:rotate(45deg);flex:none}
+#cmd input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:15px var(--font);outline:none}
+#cmd input:focus-visible{box-shadow:0 0 0 2px var(--sky)}
+#cmd button{all:unset;cursor:pointer;background:var(--hud);color:#f4efe4;font-family:var(--font-hud);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+#cmd button:focus-visible{outline:2px solid var(--sky)}
+#hint{position:fixed;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 60px);z-index:5;font-size:12px;color:var(--mute);background:var(--card);border:1px solid var(--line);padding:6px 10px;max-width:260px}
+#toast{position:fixed;left:50%;bottom:150px;transform:translateX(-50%);z-index:7;background:var(--deep);color:#f4efe4;padding:8px 14px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+@media (max-width:640px){
+  #top .pill.score{display:none}
+  #panel{top:auto;bottom:140px;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));width:auto;max-height:46vh}
+  #hint{display:none}
+  .stat b{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){#agentline i{animation:none}}
+</style>
+
+<div id="stage"></div>
+<div id="labels" style="position:fixed;inset:0;pointer-events:none;z-index:4;overflow:hidden"></div>
+
+<header id="top">
+  <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" aria-hidden><polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="none" stroke="#2b4b6f" stroke-width="7" stroke-linejoin="round"/><path d="M10 28 L50 50 L90 28 M50 50 L50 94" fill="none" stroke="#4a6e95" stroke-width="7" stroke-linecap="round"/></svg>NEEL OS</div>
+  <div class="pill score"><span class="readout">Level</span><b>1</b><span class="readout">Score</span><b>77</b><span class="readout">Streak</span><b style="color:var(--warn)">2d</b></div>
+  <div class="pill readout" id="agentline"><i></i><span id="agenttxt">NEEL · heading to Compliance</span></div>
+</header>
+<div id="hint">Drag to look around · scroll or pinch to zoom · click a room or a person · WASD walks</div>
+
+<aside id="panel" hidden aria-live="polite"></aside>
+
+<div id="dock">
+  <div id="missions"></div>
+  <form id="cmd" autocomplete="off">
+    <span class="dia"></span>
+    <label for="order" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Tell NEEL what to do</label>
+    <input id="order" type="text" placeholder="Tell NEEL what to do: “chase the overdue invoice”, “what is due this month?”">
+    <button type="submit">Run</button>
+  </form>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* ---------- data (mock, mirrors the live Bridge on 3 Nov 2026) ---------- */
+const ROOMS = {
+  bridge:{name:"The Bridge",pos:[0,0],size:[12,10],color:0xdbe5ec,stat:{v:"0",n:"need you",tone:"ok"},
+    lead:"Reception and the big board. Everything NEEL is doing, in one glance.",
+    stats:[["0","need you"],["0","running"],["0","done today"],["2d","streak"]],
+    list:[["Nothing needs you right now.",""]]},
+  bd:{name:"BD & Marketing",pos:[-14,-9],size:[12,10],color:0xcfe0f0,stat:{v:"0",n:"open leads",tone:"warn"},
+    lead:"Leads, pipeline and campaigns. Level 2.",
+    stats:[["0","open leads"],["RM 0","pipeline"],["1","active client"],["LV 2","sector"]],
+    list:[["Sales Engine outreach","not started"],["Warm intro list","3 names"]]},
+  delivery:{name:"Delivery",pos:[0,-13],size:[12,8],color:0xd6e4ee,stat:{v:"1",n:"active client",tone:"ok"},
+    lead:"Client work in Scoping, Building, Nurture, Retain.",
+    stats:[["1","active"],["0","due today"],["0","tasks open"],["LV 2","sector"]],
+    list:[["FERA pilot","Scoping · 20%"],["Nothing due today",""]]},
+  finance:{name:"Finance",pos:[14,-9],size:[12,10],color:0xd2e2ee,stat:{v:"RM 0",n:"receivable",tone:"ok"},
+    lead:"Invoices, expenses and the cash position.",
+    stats:[["RM 0","receivable"],["RM 0","overdue"],["RM 0","paid · Nov"],["RM 0","spent · Nov"]],
+    list:[["No invoices sent yet",""],["Deposit rule","50% on all projects"]]},
+  compliance:{name:"Legal & Compliance",pos:[14,9],size:[12,10],color:0xd9e3ec,stat:{v:"45d",n:"to e-BOS",tone:"warn"},
+    lead:"What binds a two-partner LLP: SSM, LHDN, PDPA. Level 4.",
+    stats:[["45d","next filing"],["10","obligations"],["0","late"],["LV 4","sector"]],
+    list:[["SSM · e-BOS lodgement","18 Dec"],["LHDN · register tax file","31 Dec"],["LHDN · CP204 estimate","19 Jan"],["PDPA · privacy review","30 Oct 27"],["SSM · annual declaration","19 Apr 28"]]},
+  risk:{name:"Risk",pos:[0,13],size:[12,8],color:0xdfe6ec,stat:{v:"6/8",n:"shields up",tone:"warn"},
+    lead:"Register and controls. Two shields still pending.",
+    stats:[["4","open risks"],["3","high"],["6/8","shields"],["LV 4","sector"]],
+    list:[["T1 Revenue concentration","3 × 3"],["T2 Partner availability","3 × 2"],["T3 Client data breach","2 × 3"],["PI insurance","pending"]]},
+  documents:{name:"Documents",pos:[-14,9],size:[12,10],color:0xd4dfe8,stat:{v:"0",n:"to sign",tone:"ok"},
+    lead:"The vault. Drop a contract, invoice or receipt and NEEL files it.",
+    stats:[["0","to sign"],["3","in vault"],["LLP","agreement signed"],["LV 1","sector"]],
+    list:[["LLP Agreement","signed 30 Oct"],["SSM certificate","filed"],["Stamp certificate","filed"]]},
+};
+let MISSIONS=[
+  {s:"run",t:"Checking the e-BOS deadline",d:"Compliance"},
+  {s:"need",t:"Draft reminder: register LHDN tax file by 31 Dec",d:"Approve?"},
+  {s:"done",t:"Answered: nothing due this week",d:"+5 XP"},
+];
+
+/* ---------- three.js scene ---------- */
+const stage=document.getElementById("stage");
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(50,1,0.1,300);
+camera.position.set(22,20,30);
+const controls=new THREE.OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true; controls.maxPolarAngle=Math.PI/2.15; controls.minDistance=6; controls.maxDistance=70;
+controls.target.set(0,1,0);
+
+scene.add(new THREE.HemisphereLight(0xffffff,0x9fb4c8,0.9));
+const sun=new THREE.DirectionalLight(0xfff4e0,0.9); sun.position.set(20,35,15); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-45,right:45,top:45,bottom:-45,far:120});
+scene.add(sun);
+
+const M=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.85,metalness:.05},o));
+const box=(w,h,d,c,x,y,z,o)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),M(c,o));m.position.set(x,y,z);m.castShadow=m.receiveShadow=true;return m;};
+const clickables=[];
+
+// ground + floor
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(90,90),M(0xeef2f6)); ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
+const grid=new THREE.GridHelper(90,45,0xbdd3e5,0xdbe5ec); grid.position.y=0.01; scene.add(grid);
+
+function wall(x,z,len,rotY,h=2.2){const w=box(len,h,0.25,0xf6f8fa,x,h/2,z,{roughness:.9});w.rotation.y=rotY;scene.add(w);}
+function desk(x,z,rot=0){const g=new THREE.Group();g.add(box(2.4,0.1,1.1,0xd9c9a8,0,0.8,0));g.add(box(0.1,0.8,1,0x8a7a5a,-1.1,0.4,0));g.add(box(0.1,0.8,1,0x8a7a5a,1.1,0.4,0));
+  const mon=box(0.9,0.55,0.05,0x1b1d1f,0,1.2,-0.3);g.add(mon);const scr=box(0.8,0.45,0.02,0x799fc3,0,1.2,-0.26,{emissive:0x4a6e95,emissiveIntensity:.8});g.add(scr);
+  g.add(box(0.5,0.08,0.3,0x2b4b6f,0.2,0.89,0.25));g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);return g;}
+function chair(x,z,rot=0){const g=new THREE.Group();g.add(box(0.6,0.08,0.6,0x2b4b6f,0,0.5,0));g.add(box(0.6,0.7,0.08,0x2b4b6f,0,0.85,-0.3));const p=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,.5),M(0x555));p.position.y=.25;g.add(p);g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);return g;}
+function plant(x,z){const g=new THREE.Group();const pot=new THREE.Mesh(new THREE.CylinderGeometry(.25,.2,.4,10),M(0x9e7b5a));pot.position.y=.2;g.add(pot);const leaf=new THREE.Mesh(new THREE.ConeGeometry(.45,1.2,7),M(0x3e7d5a));leaf.position.y=1;leaf.castShadow=true;g.add(leaf);g.position.set(x,0,z);scene.add(g);}
+function cabinet(x,z,h=1.6){const c=box(0.8,h,0.5,0x9fb4c8,x,h/2,z,{metalness:.3,roughness:.6});scene.add(c);for(let i=0;i<Math.floor(h/0.4);i++){const d=box(0.6,0.05,0.02,0x1b3a5e,x,0.25+i*0.4,z+0.26);scene.add(d);}}
+function board(x,z,rot,color=0xffffff){const b=box(3,1.6,0.08,color,x,1.7,z);b.rotation.y=rot;scene.add(b);for(let i=0;i<4;i++){const s=box(0.5+Math.random()*1.4,0.08,0.02,[0x2b4b6f,0x799fc3,0xb7791f][i%3],x+(Math.random()-.5)*1.6,1.3+i*.25,z+0.05);s.rotation.y=rot;scene.add(s);}}
+function safe(x,z){const s=box(1.2,1.4,1.1,0x3a4b5c,x,0.7,z,{metalness:.5,roughness:.4});scene.add(s);const dial=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,.08,16),M(0xd9c9a8,{metalness:.6}));dial.rotation.x=Math.PI/2;dial.position.set(x,0.8,z+0.6);scene.add(dial);}
+function radar(x,z){const base=new THREE.Mesh(new THREE.CylinderGeometry(.3,.5,1.4,12),M(0x9fb4c8,{metalness:.3}));base.position.set(x,.7,z);scene.add(base);const dish=new THREE.Mesh(new THREE.SphereGeometry(.9,16,8,0,Math.PI*2,0,Math.PI/2.4),M(0x2b4b6f,{side:THREE.DoubleSide,metalness:.4}));dish.rotation.x=Math.PI;dish.rotation.z=.6;dish.position.set(x,1.9,z);scene.add(dish);radar.dish=dish;}
+function shelf(x,z,rot){const g=new THREE.Group();g.add(box(2.4,2,0.4,0x8a7a5a,0,1,0));for(let r=0;r<3;r++)for(let i=0;i<7;i++){g.add(box(0.22,0.5,0.3,[0x2b4b6f,0x1b3a5e,0x799fc3,0xb3261e,0x2e7d4f][(i+r)%5],-1+i*.33,0.45+r*.6,0.1));}g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);}
+function bigBoard(x,z,rot){const g=new THREE.Group();g.add(box(6,3,0.15,0x1b1d1f,0,2.2,0));g.add(box(5.8,2.8,0.02,0x1b3a5e,0,2.2,0.08,{emissive:0x2b4b6f,emissiveIntensity:.6}));
+  for(let i=0;i<6;i++){const w=0.6+Math.random()*1.6;g.add(box(w,0.1,0.02,0x799fc3,-2.4+w/2,1.2+i*.4,0.1,{emissive:0x799fc3,emissiveIntensity:1}));}
+  g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);}
+
+// rooms
+const roomMeshes={};
+for(const [id,r] of Object.entries(ROOMS)){
+  const [x,z]=r.pos,[w,d]=r.size;
+  const floor=box(w,0.12,d,r.color,x,0.06,z,{roughness:.95}); floor.userData.room=id; scene.add(floor); clickables.push(floor); roomMeshes[id]=floor;
+  const edge=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(w,0.12,d)),new THREE.LineBasicMaterial({color:0x2b4b6f}));edge.position.copy(floor.position);scene.add(edge);
+  if(id!=="bridge"){ // low walls on the two outer sides, open toward the bridge
+    const sx=Math.sign(x),sz=Math.sign(z);
+    if(sx) wall(x+sx*w/2,z,d,Math.PI/2); if(sz) wall(x,z+sz*d/2,w,0);
+    if(!sx){wall(x-w/2,z,d,Math.PI/2,1.1);wall(x+w/2,z,d,Math.PI/2,1.1);}
+    if(!sz){wall(x,z-d/2,w,0,1.1);wall(x,z+d/2,w,0,1.1);}
+  }
+}
+// furnish
+desk(-14,-11);chair(-14,-10,Math.PI);board(-14,-13.7,0);plant(-19,-5);                        // BD
+desk(-2,-14,0);desk(2,-14,0);chair(-2,-13,Math.PI);chair(2,-13,Math.PI);plant(5,-16);          // Delivery
+desk(14,-11);chair(14,-10,Math.PI);safe(18.5,-12.5);cabinet(10.5,-12.5);plant(19,-5);            // Finance
+desk(14,11,Math.PI);chair(14,10,0);shelf(14,13.6,0);cabinet(18.5,12);plant(19,5);                // Compliance
+radar(0,15);desk(-3,12,Math.PI);chair(-3,11,0);board(4,16.7,0,0xf4efe4);                         // Risk
+cabinet(-18.5,11);cabinet(-17.5,11);cabinet(-16.5,11);cabinet(-18.5,7,2.2);shelf(-12,13.6,0);    // Documents
+bigBoard(0,-4.8,0);desk(-3,1.5,0);desk(3,1.5,0);chair(-3,2.5,Math.PI);chair(3,2.5,Math.PI);plant(-5.5,4);plant(5.5,4); // Bridge
+// coffee corner
+const table=new THREE.Mesh(new THREE.CylinderGeometry(.9,.9,.08,20),M(0xd9c9a8));table.position.set(-8,.95,-2);scene.add(table);const leg=new THREE.Mesh(new THREE.CylinderGeometry(.08,.3,.9,10),M(0x8a7a5a));leg.position.set(-8,.45,-2);scene.add(leg);
+
+// avatars
+function person(shirt,skin,hair,name){
+  const g=new THREE.Group();
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(.3,.26,.75,12),M(shirt));body.position.y=1.05;body.castShadow=true;g.add(body);
+  const sh=new THREE.Mesh(new THREE.SphereGeometry(.3,12,8),M(shirt));sh.position.y=1.42;g.add(sh);
+  const legs=box(.5,.7,.3,0x1b1d1f,0,.35,0);g.add(legs);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.28,16,12),M(skin));head.position.y=1.68;head.castShadow=true;g.add(head);
+  const h=new THREE.Mesh(new THREE.SphereGeometry(.29,16,8,0,Math.PI*2,0,Math.PI/2.2),M(hair));h.position.y=1.72;g.add(h);
+  g.userData={name,walk:0};scene.add(g);return g;
+}
+const aiman=person(0x2b4b6f,0xc89a74,0x1b1d1f,"Aiman");aiman.position.set(-3,0,2.5);
+const hakim=person(0x799fc3,0xb07f5a,0x2a1d14,"Hakim");hakim.position.set(14,0,10);hakim.rotation.y=Math.PI;
+// NEEL: the letter-cube agent, hovering
+const neel=new THREE.Group();
+const cube=new THREE.Mesh(new THREE.BoxGeometry(.9,.9,.9),M(0x2b4b6f,{emissive:0x1b3a5e,emissiveIntensity:.5,metalness:.4,roughness:.3}));cube.castShadow=true;neel.add(cube);
+neel.add(new THREE.LineSegments(new THREE.EdgesGeometry(cube.geometry),new THREE.LineBasicMaterial({color:0xbdd3e5})));
+const eye=box(.5,.12,.02,0x799fc3,0,.1,.46,{emissive:0x799fc3,emissiveIntensity:2});neel.add(eye);
+const glow=new THREE.PointLight(0x799fc3,.8,6);neel.add(glow);
+const ring=new THREE.Mesh(new THREE.RingGeometry(.5,.6,32),new THREE.MeshBasicMaterial({color:0x799fc3,transparent:true,opacity:.5,side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=-1.4;neel.add(ring);
+neel.position.set(0,1.6,-2);scene.add(neel);
+[aiman,hakim,neel].forEach(a=>{a.traverse(o=>{o.userData.avatar=a;});clickables.push(a);});
+
+/* ---------- NEEL's patrol: walks to a room, "works", moves on ---------- */
+const patrol=[["compliance","Checking the e-BOS deadline"],["finance","Reconciling this month's expenses"],["bd","Scoring the warm intro list"],["documents","Filing the stamp certificate"],["risk","Re-scoring T1 after the FERA pilot"],["delivery","Updating the FERA pilot to 20%"],["bridge","Reporting to the Bridge"]];
+let pi=0,neelTarget=new THREE.Vector3(14,1.6,9),dwell=0;
+function nextStop(){pi=(pi+1)%patrol.length;const [room,task]=patrol[pi];const [x,z]=ROOMS[room].pos;neelTarget.set(x+(Math.random()-.5)*4,1.6,z+(Math.random()-.5)*3);
+  document.getElementById("agenttxt").textContent=`NEEL · ${task}`;MISSIONS.unshift({s:"run",t:task,d:ROOMS[room].name});if(MISSIONS.length>5)MISSIONS.pop();renderMissions();}
+// partners occasionally stroll to the coffee table and back
+const strolls=[{a:aiman,home:new THREE.Vector3(-3,0,2.5),t:new THREE.Vector3(-3,0,2.5),wait:6},{a:hakim,home:new THREE.Vector3(14,0,10),t:new THREE.Vector3(14,0,10),wait:14}];
+
+/* ---------- labels (HTML, projected) ---------- */
+const labels=document.getElementById("labels");
+const labelEls={};
+for(const [id,r] of Object.entries(ROOMS)){const el=document.createElement("div");el.className="lbl "+r.stat.tone;el.innerHTML=`<span class="n">${r.name}</span><span class="v"><b>${r.stat.v}</b> ${r.stat.n}</span>`;el.onclick=()=>openRoom(id);labels.appendChild(el);labelEls[id]={el,pos:new THREE.Vector3(r.pos[0],3.2,r.pos[1])};}
+for(const a of [aiman,hakim,neel]){const el=document.createElement("div");el.className="lbl av";el.innerHTML=`<span class="n">${a===neel?"NEEL · agent":a.userData.name}</span><span class="v">${a===neel?"on patrol":a===aiman?"Partner · BD & Finance":"Partner · Compliance Officer"}</span>`;el.onclick=()=>focusOn(a.position,a===neel?"NEEL":a.userData.name);labels.appendChild(el);labelEls[a.uuid]={el,obj:a,dy:a===neel?1.1:2.2};}
+const v=new THREE.Vector3();
+function placeLabels(){const W=innerWidth,H=innerHeight;for(const k in labelEls){const L=labelEls[k];v.copy(L.obj?L.obj.position:L.pos);if(L.obj)v.y+=L.dy;v.project(camera);const vis=v.z<1;L.el.style.opacity=vis?1:0;L.el.style.left=((v.x+1)/2*W)+"px";L.el.style.top=((1-v.y)/2*H)+"px";}}
+
+/* ---------- camera flights ---------- */
+let fly=null;
+function flyTo(target,pos){fly={t0:performance.now(),from:camera.position.clone(),to:pos,tf:controls.target.clone(),tt:target};}
+function focusOn(p,name){flyTo(new THREE.Vector3(p.x,1.2,p.z),new THREE.Vector3(p.x+6,5,p.z+8));toast(`Looking at ${name}`);}
+function openRoom(id){const r=ROOMS[id];const [x,z]=r.pos;flyTo(new THREE.Vector3(x,1,z),new THREE.Vector3(x+(x<0?-7:x>0?7:0)*0.6+6,8,z+9));
+  const p=document.getElementById("panel");p.hidden=false;
+  p.innerHTML=`<h2>${r.name}<button type="button" aria-label="Close">✕ close</button></h2><p class="lead">${r.lead}</p>
+  <div class="stats">${r.stats.map(([v,n])=>`<div class="stat"><b>${v}</b><span>${n}</span></div>`).join("")}</div>
+  <ul class="list">${r.list.map(([a,b])=>`<li><span>${a}</span><span class="d">${b}</span></li>`).join("")}</ul>
+  ${id==="risk"?`<div class="seg">${[1,1,1,1,1,1,0,0].map(x=>`<i class="${x?"on":""}"></i>`).join("")}</div>`:""}`;
+  p.querySelector("button").onclick=()=>{p.hidden=true;};
+  document.getElementById("order").placeholder=`Tell NEEL about ${r.name}: ${{bd:"“which leads deserve a call?”",finance:"“invoice FERA RM 4,000 due 14 Nov”",compliance:"“the e-BOS lodgement is done”",risk:"“PI insurance quotes are in”",documents:"“file this as a contract”",delivery:"“FERA pilot is at 40%”",bridge:"“what needs me today?”"}[id]}`;
+}
+/* ---------- interaction ---------- */
+const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();let downAt=null;
+renderer.domElement.addEventListener("pointerdown",e=>{downAt=[e.clientX,e.clientY];});
+renderer.domElement.addEventListener("pointerup",e=>{if(!downAt||Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1])>6)return;
+  pointer.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);ray.setFromCamera(pointer,camera);
+  const hit=ray.intersectObjects(clickables,true)[0];if(!hit)return;
+  const av=hit.object.userData.avatar;if(av){focusOn(av.position,av===neel?"NEEL":av.userData.name);return;}
+  if(hit.object.userData.room)openRoom(hit.object.userData.room);});
+const keys={};addEventListener("keydown",e=>{if(e.target.tagName!=="INPUT")keys[e.key.toLowerCase()]=true;});addEventListener("keyup",e=>{keys[e.key.toLowerCase()]=false;});
+function toast(t){const el=document.getElementById("toast");el.textContent=t;el.style.opacity=1;clearTimeout(toast.h);toast.h=setTimeout(()=>el.style.opacity=0,2200);}
+function renderMissions(){document.getElementById("missions").innerHTML=MISSIONS.map((m,i)=>`<div class="m ${m.s}"><i></i><span>${m.t}</span><span style="color:var(--mute)">${m.d}</span>${m.s==="need"?`<button data-i="${i}">Approve</button>`:""}</div>`).join("");
+  document.querySelectorAll("#missions button").forEach(b=>b.onclick=()=>{const m=MISSIONS[+b.dataset.i];m.s="done";m.d="+20 XP";renderMissions();toast("Approved. NEEL is on it.");});}
+renderMissions();
+document.getElementById("cmd").addEventListener("submit",e=>{e.preventDefault();const i=document.getElementById("order");const t=i.value.trim();if(!t)return;i.value="";
+  const room=/invoice|rm|pay|expense/i.test(t)?"finance":/lead|call|campaign|pitch/i.test(t)?"bd":/sst|ssm|lhdn|ebos|e-bos|declar|pdpa|filing|due/i.test(t)?"compliance":/risk|insur|shield/i.test(t)?"risk":/file|contract|document|sign/i.test(t)?"documents":/task|client|pilot|deliver/i.test(t)?"delivery":"bridge";
+  const [x,z]=ROOMS[room].pos;neelTarget.set(x,1.6,z);dwell=0;document.getElementById("agenttxt").textContent=`NEEL · ${t}`;MISSIONS.unshift({s:"run",t,d:ROOMS[room].name});renderMissions();toast(`On it. Heading to ${ROOMS[room].name}.`);
+  setTimeout(()=>{const m=MISSIONS.find(m=>m.t===t);if(m){m.s=/\?/.test(t)?"done":"need";m.d=/\?/.test(t)?"answered":"Approve?";renderMissions();}},3500);});
+
+/* ---------- loop ---------- */
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();}
+addEventListener("resize",resize);resize();
+const clock=new THREE.Clock();const tmp=new THREE.Vector3();
+function animate(){requestAnimationFrame(animate);const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+  // NEEL hover + travel
+  tmp.subVectors(neelTarget,neel.position);const dist=tmp.length();
+  if(dist>0.3){tmp.normalize().multiplyScalar(dt*4);neel.position.add(tmp);neel.rotation.y+=dt*1.2;}else{dwell+=dt;neel.rotation.y+=dt*.4;if(dwell>7){dwell=0;nextStop();}}
+  neel.position.y=1.6+Math.sin(t*2)*.12;ring.rotation.z+=dt;eye.material.emissiveIntensity=1.5+Math.sin(t*6)*.7;
+  if(radar.dish)radar.dish.rotation.y+=dt*.8;
+  // partners
+  for(const s of strolls){s.wait-=dt;if(s.wait<0){s.wait=10+Math.random()*12;s.t=s.t.equals(s.home)?new THREE.Vector3(-8+(Math.random()-.5)*2,0,-2+(Math.random()-.5)*2):s.home.clone();}
+    tmp.subVectors(s.t,s.a.position);const d=tmp.length();if(d>0.15){tmp.normalize();s.a.rotation.y=Math.atan2(tmp.x,tmp.z);s.a.position.addScaledVector(tmp,dt*1.6);s.a.position.y=Math.abs(Math.sin(t*9))*.05;}else s.a.position.y=0;}
+  // WASD walk
+  const sp=dt*9;const f=new THREE.Vector3();camera.getWorldDirection(f);f.y=0;f.normalize();const r=new THREE.Vector3().crossVectors(f,new THREE.Vector3(0,1,0));
+  let mv=new THREE.Vector3();if(keys.w)mv.add(f);if(keys.s)mv.sub(f);if(keys.d)mv.add(r);if(keys.a)mv.sub(r);if(mv.lengthSq()){mv.normalize().multiplyScalar(sp);camera.position.add(mv);controls.target.add(mv);fly=null;}
+  if(fly){const k=Math.min(1,(performance.now()-fly.t0)/900),e=1-Math.pow(1-k,3);camera.position.lerpVectors(fly.from,fly.to,e);controls.target.lerpVectors(fly.tf,fly.tt,e);if(k>=1)fly=null;}
+  controls.update();renderer.render(scene,camera);placeLabels();}
+animate();
+</script>
+</body></html>
