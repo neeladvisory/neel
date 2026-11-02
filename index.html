@@ -14,8 +14,9 @@
 <meta property="og:url" content="https://neeladvisory.my/">
 <meta property="og:image" content="https://neeladvisory.my/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#2F6B4F">
-<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+<meta name="theme-color" content="#2B4B6F">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,7 @@ a{color:inherit}
 .c.ready:not(.booted) .draw:not(.in) path{animation:failsafe-draw 0s 4s forwards}
 @keyframes failsafe-draw{to{stroke-dashoffset:0}}
 
-.hl{background-image:linear-gradient(transparent 56%, #BFE3C9 56%, #BFE3C9 90%, transparent 90%);background-repeat:no-repeat;background-size:100% 100%;transition:background-size 1.1s cubic-bezier(.6,0,.2,1) .35s}
+.hl{background-image:linear-gradient(transparent 56%, #BDD3E5 56%, #BDD3E5 90%, transparent 90%);background-repeat:no-repeat;background-size:100% 100%;transition:background-size 1.1s cubic-bezier(.6,0,.2,1) .35s}
 .c.ready .hlw:not(.in) .hl{background-size:0% 100%}
 
 .c.ready .rcpt:not(.in) .rc{opacity:0;transform:translateX(-12px)}
@@ -52,7 +53,7 @@ a{color:inherit}
 .prog{animation:prog 3.4s cubic-bezier(.6,0,.3,1) infinite}
 @keyframes prog{0%{transform:scaleX(.12)}75%,100%{transform:scaleX(.84)}}
 .pdot{animation:pdot 1.8s ease-out infinite}
-@keyframes pdot{0%{box-shadow:0 0 0 0 rgba(47,107,79,.5)}100%{box-shadow:0 0 0 9px rgba(47,107,79,0)}}
+@keyframes pdot{0%{box-shadow:0 0 0 0 rgba(43,75,111,.5)}100%{box-shadow:0 0 0 9px rgba(43,75,111,0)}}
 .spinslow{animation:spinslow 7s linear infinite;transform-origin:center}
 @keyframes spinslow{to{transform:rotate(360deg)}}
 .float{animation:float 7s ease-in-out infinite}
@@ -60,10 +61,10 @@ a{color:inherit}
 .px{transform:translateY(calc(var(--sy, 0) * var(--k, 0) * 1px))}
 
 .card{transition:transform .45s cubic-bezier(.2,.9,.25,1.15),box-shadow .45s !important}
-.card:hover{transform:translateY(-8px) rotate(0deg) !important;box-shadow:0 22px 40px -22px rgba(27,31,28,.55) !important}
+.card:hover{transform:translateY(-8px) rotate(0deg) !important;box-shadow:0 22px 40px -22px rgba(27,29,31,.55) !important}
 .btn{transition:transform .3s cubic-bezier(.2,.9,.25,1.15)}
 .btn:hover{transform:translateY(-3px) rotate(-1deg)}
-.tape{position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:rgba(255,253,246,.62);border:1px solid rgba(27,31,28,.06);transform:rotate(-4deg)}
+.tape{position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:rgba(255,253,246,.62);border:1px solid rgba(27,29,31,.06);transform:rotate(-4deg)}
 .route-v{display:none}
 .burger{display:none !important}
 .rail{scrollbar-width:none}
@@ -121,6 +122,19 @@ a{color:inherit}
 .prog{transform:scaleX(.6)}
 .px{transform:none !important}
 }
+.bundles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;align-items:start;padding-top:14px}
+@media (max-width: 980px){.bundles{grid-template-columns:minmax(0,1fr);max-width:640px;margin:0 auto}.bundles>[data-in]{opacity:1 !important;transform:rotate(var(--rot,0deg)) !important}}
+.mnav{margin-top:36px;display:flex;flex-direction:column;font-family:Fraunces,Georgia,serif;font-weight:800;font-size:26px;line-height:1.2;letter-spacing:-0.01em}
+.mnav>a,.mnav summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;border-bottom:1px solid rgba(244,239,228,.18)}
+.mnav summary{list-style:none;cursor:pointer}.mnav summary::-webkit-details-marker{display:none}
+.mnav-chev{flex:none;width:12px;height:12px;margin-right:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-3px,-3px);transition:transform .3s}
+.mnav-grp[open] .mnav-chev{transform:rotate(-135deg) translate(-3px,-3px)}
+.mnav-subs{display:flex;flex-direction:column;padding:6px 0 12px 14px;border-bottom:1px solid rgba(244,239,228,.18);font-family:Inter,system-ui,sans-serif;font-weight:500;font-size:16px;letter-spacing:0}
+.mnav-sub{display:flex;align-items:center;min-height:42px}
+.mnav-grp[open] .mnav-subs{animation:mnavIn .3s ease}
+@keyframes mnavIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.mnav summary:focus-visible,.mnav a:focus-visible{outline:2px solid #BDD3E5;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.mnav-grp[open] .mnav-subs{animation:none}.mnav-chev{transition:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://neeladvisory.my/#business", "name": "NEEL Advisory", "legalName": "NEEL Advisory PLT", "url": "https://neeladvisory.my/", "logo": "https://neeladvisory.my/assets/brand/neel-logo.jpg", "image": "https://neeladvisory.my/assets/og.jpg", "description": "NEEL Advisory delivers strategy, business plans and project management for SMEs, family businesses, corporations and GLCs in Malaysia, and builds and runs the automation tools the plan needs.", "email": "admin@neeladvisory.my", "foundingDate": "2026-10-19", "identifier": {"@type": "PropertyValue", "propertyID": "SSM registration number", "value": "202604002734 (LLP0047979-LGN)"}, "address": {"@type": "PostalAddress", "addressLocality": "Subang Jaya", "addressRegion": "Selangor", "addressCountry": "MY"}, "areaServed": {"@type": "Country", "name": "Malaysia"}, "knowsLanguage": ["en", "ms"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Consultancy and automation packages", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Strategy & Advisory", "url": "https://neeladvisory.my/services/strategy-advisory"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sales Engine", "url": "https://neeladvisory.my/services/ai-automations/sales-engine"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Front Desk", "url": "https://neeladvisory.my/services/ai-automations/front-desk"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Customer Loop", "url": "https://neeladvisory.my/services/ai-automations/customer-loop"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Solutions Partner", "url": "https://neeladvisory.my/how-we-work"}}]}}</script>
 <script src="/js/site.js" defer></script>
@@ -129,87 +143,87 @@ a{color:inherit}
 <body>
 <a href="#main" class="skip" style="position: absolute; left: -9999px">Skip to content</a>
 <main id="main">
-<div data-croot class="c ready" style="--sy: 0; background: #F4EFE4; color: #1B1F1C; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6; overflow-x: clip">
+<div data-croot class="c ready" style="--sy: 0; background: #F4EFE4; color: #1B1D1F; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6; overflow-x: clip">
 <div data-scroller style="height: auto; overflow-y: visible; overflow-x: visible; position: relative">
 
 <header class="wrap" style="padding-top: 20px; padding-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
 <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
-<svg width="32" height="32" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3 L30 10 L30 24 L17 31 L4 24 L4 10 Z" fill="#2F6B4F"></path><path d="M17 3 L30 10 L17 17 L4 10 Z" fill="#7DBF95"></path><path d="M17 17 L17 31" stroke="#F4EFE4" stroke-width="1.5"></path></svg>
-<span class="serif" style="font-weight: 800; font-size: 23px; letter-spacing: -0.01em">NEEL <span style="font-weight: 600; font-style: italic; color: #2F6B4F">Advisory</span></span>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true" focusable="false"><path d="M34.93 32.30 L47.01 25.32 L47.01 17.42 L28.09 28.35ZM50.00 41.00 L56.49 37.25 L56.49 29.35 L43.16 37.05ZM80.49 32.90 L80.49 75.60 L87.33 71.65 L87.33 28.95ZM20.21 75.60 L27.05 71.65 L27.05 65.69 L20.21 43.69ZM50.35 93.00 L57.36 88.95 L77.15 77.52 L77.15 69.63 L57.19 81.15 L57.19 71.65 L71.56 63.35 L71.56 55.45 L57.19 63.75 L57.19 54.25 L77.15 42.72 L77.15 34.82 L57.71 46.05 L50.35 50.30ZM42.12 60.72 L39.82 53.32 L29.88 47.58 L42.12 86.96Z" fill="#1B3A5E"/><path d="M42.81 13.79 L47.54 16.52 L47.56 16.54 L47.59 16.56 L47.61 16.58 L47.64 16.61 L47.66 16.63 L47.67 16.66 L47.69 16.69 L47.70 16.72 L47.70 16.76 L47.71 16.79 L47.71 16.81 L47.71 22.28 L65.07 32.30 L69.80 29.57 L69.82 29.55 L69.85 29.54 L69.89 29.53 L69.92 29.53 L69.95 29.52 L69.98 29.52 L70.02 29.53 L70.05 29.53 L70.08 29.54 L70.11 29.55 L70.13 29.57 L72.78 31.09 L77.68 33.92 L77.70 33.94 L77.73 33.96 L77.75 33.98 L77.78 34.01 L77.80 34.03 L77.81 34.06 L77.83 34.09 L77.84 34.12 L77.84 34.16 L77.85 34.19 L77.85 34.21 L77.85 42.93 L77.85 42.96 L77.84 42.99 L77.84 43.02 L77.83 43.05 L77.81 43.08 L77.80 43.11 L77.78 43.14 L77.75 43.16 L77.73 43.19 L77.70 43.21 L77.68 43.22 L72.95 45.95 L72.95 66.00 L77.68 68.73 L77.70 68.74 L77.73 68.76 L77.75 68.78 L77.78 68.81 L77.80 68.84 L77.81 68.86 L77.83 68.89 L77.84 68.93 L77.84 68.96 L77.85 68.99 L77.85 69.02 L77.85 74.48 L79.79 75.60 L79.79 32.90 L72.43 28.65 L42.81 11.55ZM12.67 71.65 L19.51 75.60 L19.51 40.80 L42.81 54.25 L42.81 89.05 L49.65 93.00 L49.65 50.30 L12.67 28.95ZM41.87 88.51 L28.99 47.07 L20.46 42.15 L33.34 83.58Z" fill="#2B4B6F"/><path d="M80.14 32.30 L86.98 28.35 L79.97 24.30 L50.00 7.00 L43.16 10.95 L72.78 28.05ZM20.56 24.00 L27.40 27.95 L46.67 16.82 L39.83 12.87ZM19.86 24.40 L13.02 28.35 L50.00 49.70 L57.36 45.45 L76.81 34.22 L69.97 30.27 L50.00 41.80 L41.77 37.05 L56.15 28.75 L49.31 24.80 L34.93 33.10ZM64.38 50.90 L57.88 54.65 L57.88 62.55 L71.22 54.85ZM69.97 65.08 L57.88 72.05 L57.88 79.95 L76.81 69.02Z" fill="#799FC3"/></svg>
+<span class="serif" style="font-weight: 800; font-size: 23px; letter-spacing: -0.01em">NEEL <span style="font-weight: 600; color: #2B4B6F">Advisory</span></span>
 </a>
 <nav aria-label="Main" class="navlinks" style="display: flex; align-items: center; gap: 24px; font-weight: 500; font-size: 15px">
 <a href="/services/strategy-advisory" style="text-decoration: none">Strategy &amp; Advisory</a>
 <a href="/services/ai-automations" style="text-decoration: none">AI &amp; Automations</a>
 <a href="/how-we-work" style="text-decoration: none">How we work</a>
 <a href="/about" style="text-decoration: none">About</a>
-<a href="mailto:admin@neeladvisory.my" class="btn" style="background: #2F6B4F; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">Get in touch</a>
+<a href="mailto:admin@neeladvisory.my" class="btn" style="background: #2B4B6F; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">Get in touch</a>
 </nav>
-<button type="button" class="burger" data-menu-toggle aria-label="Open menu" aria-expanded="false" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1.5px solid #1B1F1C; border-radius: 999px; background: transparent; color: #1B1F1C; font: 600 14px Inter, sans-serif; cursor: pointer">Menu</button>
+<button type="button" class="burger" data-menu-toggle aria-label="Open menu" aria-expanded="false" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1.5px solid #1B1D1F; border-radius: 999px; background: transparent; color: #1B1D1F; font: 600 14px Inter, sans-serif; cursor: pointer">Menu</button>
 </header>
 
 <section class="wrap hero" style="padding-top: 40px; padding-bottom: 96px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center">
 <div>
-<p class="hand" data-in style="--d: .05s; margin: 0 0 6px; font-size: 26px; color: #1F5A3F">Business Consultancy &amp; Automation Tools</p>
+<p class="hand" data-in style="--d: .05s; margin: 0 0 6px; font-size: 26px; color: #1B3A5E">Business Consultancy &amp; Automation Tools</p>
 <h1 class="serif" style="margin: 0; font-size: clamp(60px, 8.4vw, 124px); line-height: 0.95; font-weight: 800; letter-spacing: -0.03em">
 <span data-in style="--d: .15s; display: inline-block; position: relative">Strategy,
-<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 300 24" preserveAspectRatio="none" style="--d: 1s; position: absolute; left: 2%; right: 4%; bottom: -0.06em; width: 94%; height: 0.2em; overflow: visible"><path pathLength="1" d="M4 16 C 60 6, 120 20, 180 11 S 270 8, 296 13" fill="none" stroke="#7DBF95" stroke-width="7" stroke-linecap="round"></path></svg>
+<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 300 24" preserveAspectRatio="none" style="--d: 1s; position: absolute; left: 2%; right: 4%; bottom: -0.06em; width: 94%; height: 0.2em; overflow: visible"><path pathLength="1" d="M4 16 C 60 6, 120 20, 180 11 S 270 8, 296 13" fill="none" stroke="#799FC3" stroke-width="7" stroke-linecap="round"></path></svg>
 </span><br>
-<span data-in="drop" style="--d: .45s; --rot: -2.5deg; display: inline-block; margin-top: 0.12em; background: #2F6B4F; color: #F4EFE4; font-style: italic; padding: 0.02em 0.22em 0.08em; clip-path: polygon(0 6%, 8% 0, 17% 5%, 27% 1%, 38% 6%, 49% 0, 60% 5%, 71% 1%, 82% 6%, 92% 0, 100% 4%, 99% 94%, 90% 100%, 80% 95%, 69% 100%, 58% 96%, 47% 100%, 36% 95%, 25% 100%, 14% 96%, 4% 100%, 1% 95%)">delivered.</span>
+<span data-in="drop" style="--d: .45s; --rot: -2.5deg; display: inline-block; margin-top: 0.12em; background: #2B4B6F; color: #F4EFE4; font-style: italic; padding: 0.02em 0.22em 0.08em; clip-path: polygon(0 6%, 8% 0, 17% 5%, 27% 1%, 38% 6%, 49% 0, 60% 5%, 71% 1%, 82% 6%, 92% 0, 100% 4%, 99% 94%, 90% 100%, 80% 95%, 69% 100%, 58% 96%, 47% 100%, 36% 95%, 25% 100%, 14% 96%, 4% 100%, 1% 95%)">delivered.</span>
 </h1>
-<p class="hero-sub" data-in style="--d: .7s; margin: 30px 0 0; max-width: 470px; font-size: 19px; color: #3A3F3B">Business consultancy and automation tools for Malaysian businesses. Plans you can point to, project management that keeps them moving, and the tools the plan needs, built and run by us.</p>
+<p class="hero-sub" data-in style="--d: .7s; margin: 30px 0 0; max-width: 470px; font-size: 19px; color: #3A3D3F">Business consultancy and automation tools for Malaysian businesses. Plans you can point to, project management that keeps them moving, and the tools the plan needs, built and run by us.</p>
 <div class="hero-ctas" data-in style="--d: .85s; margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px">
-<a href="mailto:admin@neeladvisory.my" class="btn" style="background: #1B1F1C; color: #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Tell us where you are</a>
-<a href="/services/strategy-advisory" class="btn" style="border: 1.5px solid #1B1F1C; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Our services</a>
+<a href="mailto:admin@neeladvisory.my" class="btn" style="background: #1B1D1F; color: #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Tell us where you are</a>
+<a href="/services/strategy-advisory" class="btn" style="border: 1.5px solid #1B1D1F; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Our services</a>
 </div>
 </div>
 
 <div class="board" aria-label="Collage illustrating an engagement in progress" role="img" style="position: relative; height: 560px">
 <div class="px pw-disc" style="--k: -0.06; position: absolute; right: 0; top: 0; width: 34%">
-<div class="disc" data-in="drop" style="--d: .35s; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; background: #2F6B4F; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px -24px rgba(27,31,28,.6)">
-<svg class="float" width="44%" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3 L30 10 L30 24 L17 31 L4 24 L4 10 Z" fill="none" stroke="#F4EFE4" stroke-width="1.6" stroke-linejoin="round"></path><path d="M4 10 L17 17 L30 10 M17 17 L17 31" fill="none" stroke="#F4EFE4" stroke-width="1.6" stroke-linejoin="round"></path><path d="M17 3 L30 10 L17 17 L4 10 Z" fill="#7DBF95"></path></svg>
+<div class="disc" data-in="drop" style="--d: .35s; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; background: #2B4B6F; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px -24px rgba(27,29,31,.6)">
+<svg class="float" width="44%" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3 L30 10 L30 24 L17 31 L4 24 L4 10 Z" fill="none" stroke="#F4EFE4" stroke-width="1.6" stroke-linejoin="round"></path><path d="M4 10 L17 17 L30 10 M17 17 L17 31" fill="none" stroke="#F4EFE4" stroke-width="1.6" stroke-linejoin="round"></path><path d="M17 3 L30 10 L17 17 L4 10 Z" fill="#799FC3"></path></svg>
 </div>
 </div>
 
 <div class="px pw-note" style="--k: 0.05; position: absolute; right: 0; top: 50%; width: 34%">
-<div class="note" data-in="drop" style="--d: 1.6s; --rot: -5deg; position: relative; width: 100%; background: #DCEBDD; padding: 30px 22px 18px; box-shadow: 0 16px 30px -18px rgba(27,31,28,.55)">
+<div class="note" data-in="drop" style="--d: 1.6s; --rot: -5deg; position: relative; width: 100%; background: #DBE5EC; padding: 30px 22px 18px; box-shadow: 0 16px 30px -18px rgba(27,29,31,.55)">
 <span class="tape"></span>
-<p class="hand" style="margin: 0; font-size: 32px; font-weight: 700; color: #1F5A3F; line-height: 1.02">Built &amp; Run by Us</p>
-<svg class="draw" data-in="draw" viewBox="0 0 120 40" aria-hidden="true" style="--d: 2.2s; display: block; width: 70%; margin-top: 6px; overflow: visible"><path pathLength="1" d="M4 22 C 30 14, 60 28, 84 18 S 110 14, 116 16" fill="none" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round"></path></svg>
+<p class="hand" style="margin: 0; font-size: 32px; font-weight: 700; color: #1B3A5E; line-height: 1.02">Built &amp; Run by Us</p>
+<svg class="draw" data-in="draw" viewBox="0 0 120 40" aria-hidden="true" style="--d: 2.2s; display: block; width: 70%; margin-top: 6px; overflow: visible"><path pathLength="1" d="M4 22 C 30 14, 60 28, 84 18 S 110 14, 116 16" fill="none" stroke="#2B4B6F" stroke-width="4" stroke-linecap="round"></path></svg>
 </div>
 </div>
 
 <div class="px pw-rcpt" style="--k: -0.03; position: absolute; left: 6%; top: 5%; width: 56%">
-<div class="rcpt" data-in="drop" style="--d: .8s; --rot: 3deg; position: relative; width: 100%; background: #FFFDF8; padding: 18px 20px 34px; box-shadow: 0 16px 30px -18px rgba(27,31,28,.5); clip-path: polygon(0 0, 100% 0, 100% 95%, 94% 100%, 88% 95%, 82% 100%, 76% 95%, 70% 100%, 64% 95%, 58% 100%, 52% 95%, 46% 100%, 40% 95%, 34% 100%, 28% 95%, 22% 100%, 16% 95%, 10% 100%, 4% 95%, 0 100%)">
+<div class="rcpt" data-in="drop" style="--d: .8s; --rot: 3deg; position: relative; width: 100%; background: #FFFDF8; padding: 18px 20px 34px; box-shadow: 0 16px 30px -18px rgba(27,29,31,.5); clip-path: polygon(0 0, 100% 0, 100% 95%, 94% 100%, 88% 95%, 82% 100%, 76% 95%, 70% 100%, 64% 95%, 58% 100%, 52% 95%, 46% 100%, 40% 95%, 34% 100%, 28% 95%, 22% 100%, 16% 95%, 10% 100%, 4% 95%, 0 100%)">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
-<p style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .14em; color: #4A4F4B">HOW WE DELIVER</p>
-<span class="hand" style="font-size: 18px; color: #1F5A3F; line-height: 1">Start to Finish</span>
+<p style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .14em; color: #4A4D4F">HOW WE DELIVER</p>
+<span class="hand" style="font-size: 18px; color: #1B3A5E; line-height: 1">Start to Finish</span>
 </div>
 <div style="margin-top: 10px; border-top: 1px dashed #B9B2A3; padding-top: 12px; display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px; gap: 11px 10px; align-items: center">
 
-<span class="rc hand" style="--n: 0; font-size: 21px; color: #1F5A3F; line-height: 1">01</span>
-<span class="rc" style="--n: 0; line-height: 1.25"><strong style="display: block; font-size: 14px">Scoping</strong><span style="font-size: 12px; color: #5A5F5B">What to fix first, agreed</span></span>
-<svg class="draw" data-in="draw" viewBox="0 0 24 24" width="22" height="22" aria-label="Done" role="img" style="--d: 1.5s"><path pathLength="1" d="M3 13 L9 19 L21 5" fill="none" stroke="#2F6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="rc hand" style="--n: 0; font-size: 21px; color: #1B3A5E; line-height: 1">01</span>
+<span class="rc" style="--n: 0; line-height: 1.25"><strong style="display: block; font-size: 14px">Scoping</strong><span style="font-size: 12px; color: #5A5D5F">What to fix first, agreed</span></span>
+<svg class="draw" data-in="draw" viewBox="0 0 24 24" width="22" height="22" aria-label="Done" role="img" style="--d: 1.5s"><path pathLength="1" d="M3 13 L9 19 L21 5" fill="none" stroke="#2B4B6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
-<span class="rc hand" style="--n: 1; font-size: 21px; color: #1F5A3F; line-height: 1">02</span>
-<span class="rc" style="--n: 1; line-height: 1.25"><strong style="display: block; font-size: 14px">Building</strong><span style="font-size: 12px; color: #5A5F5B">The plan and the tools, made</span></span>
-<svg class="draw" data-in="draw" viewBox="0 0 24 24" width="22" height="22" aria-label="Done" role="img" style="--d: 1.9s"><path pathLength="1" d="M3 13 L9 19 L21 5" fill="none" stroke="#2F6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="rc hand" style="--n: 1; font-size: 21px; color: #1B3A5E; line-height: 1">02</span>
+<span class="rc" style="--n: 1; line-height: 1.25"><strong style="display: block; font-size: 14px">Building</strong><span style="font-size: 12px; color: #5A5D5F">The plan and the tools, made</span></span>
+<svg class="draw" data-in="draw" viewBox="0 0 24 24" width="22" height="22" aria-label="Done" role="img" style="--d: 1.9s"><path pathLength="1" d="M3 13 L9 19 L21 5" fill="none" stroke="#2B4B6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
-<span class="rc hand" style="--n: 2; font-size: 21px; color: #1F5A3F; line-height: 1">03</span>
-<span class="rc" style="--n: 2; line-height: 1.25"><strong style="display: block; font-size: 14px">Nurture</strong><span style="font-size: 12px; color: #5A5F5B">Training your team</span><span aria-hidden="true" style="display: block; margin-top: 6px; height: 6px; border-radius: 3px; background: #E7E0D0; overflow: hidden"><span class="prog" style="display: block; height: 100%; width: 100%; background: #7DBF95; transform-origin: left center"></span></span></span>
-<span class="rc" role="img" aria-label="In progress" style="--n: 2; justify-self: center; display: block"><span class="pdot" style="display: block; width: 11px; height: 11px; border-radius: 50%; background: #2F6B4F"></span></span>
+<span class="rc hand" style="--n: 2; font-size: 21px; color: #1B3A5E; line-height: 1">03</span>
+<span class="rc" style="--n: 2; line-height: 1.25"><strong style="display: block; font-size: 14px">Nurture</strong><span style="font-size: 12px; color: #5A5D5F">Training your team</span><span aria-hidden="true" style="display: block; margin-top: 6px; height: 6px; border-radius: 3px; background: #E7E0D0; overflow: hidden"><span class="prog" style="display: block; height: 100%; width: 100%; background: #799FC3; transform-origin: left center"></span></span></span>
+<span class="rc" role="img" aria-label="In progress" style="--n: 2; justify-self: center; display: block"><span class="pdot" style="display: block; width: 11px; height: 11px; border-radius: 50%; background: #2B4B6F"></span></span>
 
-<span class="rc hand" style="--n: 3; font-size: 21px; color: #8A8F8B; line-height: 1">04</span>
-<span class="rc" style="--n: 3; line-height: 1.25"><strong style="display: block; font-size: 14px">Retain</strong><span style="font-size: 12px; color: #5A5F5B">Reviews that keep it working</span></span>
-<svg class="rc spinslow" role="img" aria-label="Ongoing" viewBox="0 0 24 24" width="22" height="22" style="--n: 3"><path d="M20 12a8 8 0 0 1-13.7 5.6 M4 12a8 8 0 0 1 13.7-5.6" fill="none" stroke="#8A8F8B" stroke-width="2.4" stroke-linecap="round"></path><path d="M17.7 2.8 L17.9 6.6 L14.1 6.8 M6.3 21.2 L6.1 17.4 L9.9 17.2" fill="none" stroke="#8A8F8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="rc hand" style="--n: 3; font-size: 21px; color: #8A8D8F; line-height: 1">04</span>
+<span class="rc" style="--n: 3; line-height: 1.25"><strong style="display: block; font-size: 14px">Retain</strong><span style="font-size: 12px; color: #5A5D5F">Reviews that keep it working</span></span>
+<svg class="rc spinslow" role="img" aria-label="Ongoing" viewBox="0 0 24 24" width="22" height="22" style="--n: 3"><path d="M20 12a8 8 0 0 1-13.7 5.6 M4 12a8 8 0 0 1 13.7-5.6" fill="none" stroke="#8A8D8F" stroke-width="2.4" stroke-linecap="round"></path><path d="M17.7 2.8 L17.9 6.6 L14.1 6.8 M6.3 21.2 L6.1 17.4 L9.9 17.2" fill="none" stroke="#8A8D8F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </div>
-<div style="margin-top: 14px; border-top: 1px dashed #B9B2A3; padding-top: 8px; display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #4A4F4B"><span>STAGE</span><span>3 OF 4</span></div>
-<span class="stamp" data-in="stamp" aria-hidden="true" style="--d: 2.7s; --rot: -12deg; position: absolute; left: 34%; bottom: 30px; border: 2.5px solid #2F6B4F; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 700; letter-spacing: .16em; color: #2F6B4F; background: rgba(255,253,248,.85)">ON TRACK</span>
+<div style="margin-top: 14px; border-top: 1px dashed #B9B2A3; padding-top: 8px; display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #4A4D4F"><span>STAGE</span><span>3 OF 4</span></div>
+<span class="stamp" data-in="stamp" aria-hidden="true" style="--d: 2.7s; --rot: -12deg; position: absolute; left: 34%; bottom: 30px; border: 2.5px solid #2B4B6F; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 700; letter-spacing: .16em; color: #2B4B6F; background: rgba(255,253,248,.85)">ON TRACK</span>
 </div>
 </div>
 
-<div class="tag" data-in="drop" style="--d: 1.9s; --rot: -4deg; position: absolute; left: 10%; bottom: 4%; background: #D9C7A3; padding: 12px 18px 12px 34px; border-radius: 4px 14px 14px 4px; box-shadow: 0 12px 24px -16px rgba(27,31,28,.55)">
+<div class="tag" data-in="drop" style="--d: 1.9s; --rot: -4deg; position: absolute; left: 10%; bottom: 4%; background: #D9C7A3; padding: 12px 18px 12px 34px; border-radius: 4px 14px 14px 4px; box-shadow: 0 12px 24px -16px rgba(27,29,31,.55)">
 <span style="position: absolute; left: 12px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: #F4EFE4; border: 1px solid #A8956F"></span>
-<span class="hand" style="font-size: 24px; font-weight: 700; color: #1B1F1C">Accepting New Engagements</span>
+<span class="hand" style="font-size: 24px; font-weight: 700; color: #1B1D1F">Accepting New Engagements</span>
 </div>
 
 </div>
@@ -217,12 +231,12 @@ a{color:inherit}
 
 <section class="sec" style="padding-top: 72px; padding-bottom: 72px; border-top: 2px dashed #CFC6B4; border-bottom: 2px dashed #CFC6B4">
 <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px">
-<p class="hand" data-in style="margin: 0; font-size: 34px; font-weight: 700; color: #1F5A3F">Built For →</p>
+<p class="hand" data-in style="margin: 0; font-size: 34px; font-weight: 700; color: #1B3A5E">Built For →</p>
 <div class="labels" style="display: flex; flex-wrap: wrap; gap: 16px">
-<span class="serif" data-in="drop" style="--d: .1s; --rot: -3deg; background: #FFFDF8; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,31,28,.6)">Merchants</span>
-<span class="serif" data-in="drop" style="--d: .22s; --rot: 2deg; background: #DCEBDD; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,31,28,.6)">SMEs &amp; family businesses</span>
-<span class="serif" data-in="drop" style="--d: .34s; --rot: -1.5deg; background: #D9C7A3; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,31,28,.6)">Corporations</span>
-<span class="serif" data-in="drop" style="--d: .46s; --rot: 3deg; background: #2F6B4F; color: #F4EFE4; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,31,28,.6)">GLCs &amp; agencies</span>
+<span class="serif" data-in="drop" style="--d: .1s; --rot: -3deg; background: #FFFDF8; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,29,31,.6)">Merchants</span>
+<span class="serif" data-in="drop" style="--d: .22s; --rot: 2deg; background: #DBE5EC; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,29,31,.6)">SMEs &amp; family businesses</span>
+<span class="serif" data-in="drop" style="--d: .34s; --rot: -1.5deg; background: #D9C7A3; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,29,31,.6)">Corporations</span>
+<span class="serif" data-in="drop" style="--d: .46s; --rot: 3deg; background: #2B4B6F; color: #F4EFE4; padding: 10px 20px; font-size: 26px; font-weight: 600; box-shadow: 0 10px 22px -16px rgba(27,29,31,.6)">GLCs &amp; agencies</span>
 </div>
 </div>
 </section>
@@ -230,111 +244,101 @@ a{color:inherit}
 <section class="wrap sec" style="padding-top: 112px; padding-bottom: 96px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 40px">
 <div style="max-width: 760px">
-<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1F5A3F">Strategy &amp; Advisory</p>
+<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1B3A5E">Strategy &amp; Advisory</p>
 <h2 class="serif h2 hlw" data-in style="margin: 0; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">Advice across the business, <span class="hl" style="font-style: italic">carried through to execution.</span></h2>
 </div>
 <a href="/services/strategy-advisory" style="font-weight: 600">See Strategy &amp; Advisory →</a>
 </div>
-<div class="cards" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 22px; padding-top: 14px">
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .0s; --rot: -1.5deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 01</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Business strategy</span><span style="font-size: 15px; color: #4A4F4B">Where the business should go, and what it should stop doing.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .08s; --rot: 1.2deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 02</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Projections &amp; financial modelling</span><span style="font-size: 15px; color: #4A4F4B">The numbers behind the plan, in a model you can keep updating.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .16s; --rot: -0.6deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #DCEBDD; box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 03</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Marketing &amp; growth</span><span style="font-size: 15px; color: #3A3F3B">Positioning, channels and pricing that bring the right customers in.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .24s; --rot: 1.6deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 04</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Operations</span><span style="font-size: 15px; color: #4A4F4B">How the work gets done every day, with fewer gaps.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .1s; --rot: 1deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #D9C7A3; box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="hand" style="font-size: 22px; color: #1B1F1C">No. 05</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Procurement &amp; vendors</span><span style="font-size: 15px; color: #2E2A22">Buying well, from tender to contract to supplier review.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .18s; --rot: -1.4deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 06</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">AI &amp; automation advisory</span><span style="font-size: 15px; color: #4A4F4B">Where AI fits, and which process to automate first.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .26s; --rot: 0.8deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #2F6B4F; color: #F4EFE4; box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="hand" style="font-size: 22px; color: #BFE3C9">No. 07</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Project &amp; programme management</span><span style="font-size: 15px; color: #E3EEE5">Owner-side delivery, so the plan moves without you doing it all.</span></a>
-<a href="/services/strategy-advisory" class="card" data-in style="--d: .34s; --rot: -1deg; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 210px; padding: 26px 22px 22px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,31,28,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #1F5A3F">No. 08</span><span class="serif" style="font-size: 23px; font-weight: 800; line-height: 1.1">Performance management</span><span style="font-size: 15px; color: #4A4F4B">Knowing, every month, whether the plan is working.</span></a>
+<div class="bundles" style="align-items: stretch">
+<a href="/services/strategy-advisory" class="card" data-in style="--d: 0.0s; --rot: -1.2deg; position: relative; display: flex; flex-direction: column; gap: 10px; padding: 28px 24px 24px; text-decoration: none; background-color: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 27px, #E7E0D0 27px, #E7E0D0 28px); box-shadow: 0 14px 28px -20px rgba(27,29,31,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #1B3A5E">Bundle 01</span><span class="serif" style="font-size: 27px; font-weight: 800; line-height: 1.08">Strategy &amp; Financial</span><span style="font-size: 15px; color: #4A4D4F">Where the business should go, and whether the numbers hold up.</span><ul style="margin: 6px 0 0; padding: 12px 0 0 18px; border-top: 1px dashed #CFC6B4; font-size: 14px; line-height: 1.6; color: #4A4D4F"><li>Business strategy</li><li>Projections &amp; financial modelling</li><li>Marketing &amp; growth</li></ul></a>
+<a href="/services/strategy-advisory" class="card" data-in style="--d: 0.1s; --rot: 0.9deg; position: relative; display: flex; flex-direction: column; gap: 10px; padding: 28px 24px 24px; text-decoration: none; background-color: #DBE5EC; box-shadow: 0 14px 28px -20px rgba(27,29,31,.6)"><span class="hand" style="font-size: 22px; color: #1B3A5E">Bundle 02</span><span class="serif" style="font-size: 27px; font-weight: 800; line-height: 1.08">Operations &amp; Systems</span><span style="font-size: 15px; color: #4A4D4F">How the work gets done every day, who supplies it, and what to automate.</span><ul style="margin: 6px 0 0; padding: 12px 0 0 18px; border-top: 1px dashed #CFC6B4; font-size: 14px; line-height: 1.6; color: #4A4D4F"><li>Operations</li><li>Procurement &amp; vendors</li><li>AI &amp; automation advisory</li></ul></a>
+<a href="/services/strategy-advisory" class="card" data-in style="--d: 0.2s; --rot: -0.7deg; position: relative; display: flex; flex-direction: column; gap: 10px; padding: 28px 24px 24px; text-decoration: none; background-color: #2B4B6F; color: #F4EFE4; box-shadow: 0 14px 28px -20px rgba(27,29,31,.6)"><span class="tape"></span><span class="hand" style="font-size: 22px; color: #BDD3E5">Bundle 03</span><span class="serif" style="font-size: 27px; font-weight: 800; line-height: 1.08">Delivery &amp; Performance</span><span style="font-size: 15px; color: #E2E9EF">Moving the plan without you doing it all, and knowing every month whether it works.</span><ul style="margin: 6px 0 0; padding: 12px 0 0 18px; border-top: 1px dashed #5C7692; font-size: 14px; line-height: 1.6; color: #E2E9EF"><li>Project &amp; programme management</li><li>Performance management</li></ul></a>
 </div>
-<p class="hand swipe" aria-hidden="true" style="margin: 4px 0 0; font-size: 22px; color: #1F5A3F">Swipe for All 8 →</p>
 </section>
 
 <section class="wrap sec" style="padding-top: 8px; padding-bottom: 104px">
-<div class="band" data-in style="background: #2F6B4F; color: #F4EFE4; padding: 64px 56px; clip-path: polygon(0 1.2%, 7% 0, 15% 1%, 24% 0.2%, 33% 1.3%, 42% 0, 51% 1%, 60% 0.3%, 69% 1.2%, 78% 0, 87% 1%, 95% 0.2%, 100% 1%, 100% 99%, 93% 100%, 84% 99.1%, 75% 100%, 66% 99%, 57% 99.8%, 48% 99%, 39% 100%, 30% 99.2%, 21% 100%, 12% 99%, 4% 99.8%, 0 99%)">
+<div class="band" data-in style="background: #2B4B6F; color: #F4EFE4; padding: 64px 56px; clip-path: polygon(0 1.2%, 7% 0, 15% 1%, 24% 0.2%, 33% 1.3%, 42% 0, 51% 1%, 60% 0.3%, 69% 1.2%, 78% 0, 87% 1%, 95% 0.2%, 100% 1%, 100% 99%, 93% 100%, 84% 99.1%, 75% 100%, 66% 99%, 57% 99.8%, 48% 99%, 39% 100%, 30% 99.2%, 21% 100%, 12% 99%, 4% 99.8%, 0 99%)">
 <div class="band-top" style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 48px; align-items: center; margin-bottom: 52px">
 <div>
-<p class="hand" style="margin: 0 0 4px; font-size: 26px; color: #BFE3C9">AI &amp; Automations</p>
-<h2 class="serif h2" style="margin: 0; font-size: clamp(38px, 4.8vw, 64px); line-height: 1.02; font-weight: 800; letter-spacing: -0.02em">Tools we build <span style="font-style: italic; color: #BFE3C9">and run</span> for you.</h2>
-<p style="margin: 22px 0 0; max-width: 500px; font-size: 18px; color: #E3EEE5">For problems a business already has: missed calls, unanswered enquiries, no-shows, quotations nobody chased. Built to order on a setup fee plus a monthly fee, and run on our accounts, so you have nothing to maintain.</p>
+<p class="hand" style="margin: 0 0 4px; font-size: 26px; color: #BDD3E5">AI &amp; Automations</p>
+<h2 class="serif h2" style="margin: 0; font-size: clamp(38px, 4.8vw, 64px); line-height: 1.02; font-weight: 800; letter-spacing: -0.02em">Tools we build <span style="font-style: italic; color: #BDD3E5">and run</span> for you.</h2>
+<p style="margin: 22px 0 0; max-width: 500px; font-size: 18px; color: #E2E9EF">For problems a business already has: missed calls, unanswered enquiries, no-shows, quotations nobody chased. Built to order on a setup fee plus a monthly fee, and run on our accounts, so you have nothing to maintain.</p>
 </div>
 <figure style="margin: 0; justify-self: center; position: relative">
-<div class="phone" role="img" aria-label="Illustration of a missed-call text-back conversation" style="width: 280px; background: #1B1F1C; border-radius: 38px; padding: 11px; transform: rotate(3deg); box-shadow: 0 30px 50px -24px rgba(0,0,0,.6)">
-<div class="phone-screen" style="background: #F4EFE4; border-radius: 28px; height: 440px; overflow: hidden; display: flex; flex-direction: column; color: #1B1F1C">
-<div style="background: #FFFDF8; padding: 20px 14px 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #E2DACA"><span style="width: 32px; height: 32px; border-radius: 50%; background: #7DBF95; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">YB</span><span style="line-height: 1.2"><strong style="display: block; font-size: 14px">Your Business</strong><span style="font-size: 11px; color: #4A4F4B">Auto-reply on</span></span></div>
+<div class="phone" role="img" aria-label="Illustration of a missed-call text-back conversation" style="width: 280px; background: #1B1D1F; border-radius: 38px; padding: 11px; transform: rotate(3deg); box-shadow: 0 30px 50px -24px rgba(0,0,0,.6)">
+<div class="phone-screen" style="background: #F4EFE4; border-radius: 28px; height: 440px; overflow: hidden; display: flex; flex-direction: column; color: #1B1D1F">
+<div style="background: #FFFDF8; padding: 20px 14px 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #E2DACA"><span style="width: 32px; height: 32px; border-radius: 50%; background: #799FC3; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">YB</span><span style="line-height: 1.2"><strong style="display: block; font-size: 14px">Your Business</strong><span style="font-size: 11px; color: #4A4D4F">Auto-reply on</span></span></div>
 <div style="flex: 1; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.4">
-<span data-in style="--d: .2s; align-self: center; background: #DCEBDD; color: #1F5A3F; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600">New enquiry · 2:14 pm</span>
-<span data-in style="--d: .7s; align-self: flex-end; max-width: 80%; background: #2F6B4F; color: #FFFFFF; padding: 9px 12px; border-radius: 16px 16px 4px 16px">Thanks for getting in touch! How can we help? You can also book here.</span>
+<span data-in style="--d: .2s; align-self: center; background: #DBE5EC; color: #1B3A5E; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600">New enquiry · 2:14 pm</span>
+<span data-in style="--d: .7s; align-self: flex-end; max-width: 80%; background: #2B4B6F; color: #FFFFFF; padding: 9px 12px; border-radius: 16px 16px 4px 16px">Thanks for getting in touch! How can we help? You can also book here.</span>
 <span data-in style="--d: 1.3s; align-self: flex-start; max-width: 80%; background: #FFFDF8; padding: 9px 12px; border-radius: 16px 16px 16px 4px">Can I book a slot this Saturday?</span>
-<span data-in style="--d: 1.8s; align-self: flex-end; max-width: 80%; background: #2F6B4F; color: #FFFFFF; padding: 9px 12px; border-radius: 16px 16px 4px 16px">Saturday 10:00 is free. Shall I confirm it?</span>
+<span data-in style="--d: 1.8s; align-self: flex-end; max-width: 80%; background: #2B4B6F; color: #FFFFFF; padding: 9px 12px; border-radius: 16px 16px 4px 16px">Saturday 10:00 is free. Shall I confirm it?</span>
 <span data-in style="--d: 2.3s; align-self: flex-start; background: #FFFDF8; padding: 9px 12px; border-radius: 16px 16px 16px 4px">Yes please</span>
 </div>
 </div>
 </div>
-<div data-in="drop" aria-hidden="true" style="--d: 2.8s; --rot: -12deg; position: absolute; right: -26px; bottom: 40px; width: 112px; height: 112px; border-radius: 50%; border: 3px solid #BFE3C9; background: #1F5A3F; color: #BFE3C9; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 13px; line-height: 1.15; letter-spacing: .04em">BOOKING<br>CONFIRMED<br>✓</div>
-<figcaption class="hand" style="margin-top: 16px; text-align: center; font-size: 20px; color: #BFE3C9">Illustration: Lead Follow-Up</figcaption>
+<div data-in="drop" aria-hidden="true" style="--d: 2.8s; --rot: -12deg; position: absolute; right: -26px; bottom: 40px; width: 112px; height: 112px; border-radius: 50%; border: 3px solid #BDD3E5; background: #1B3A5E; color: #BDD3E5; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 13px; line-height: 1.15; letter-spacing: .04em">BOOKING<br>CONFIRMED<br>✓</div>
+<figcaption class="hand" style="margin-top: 16px; text-align: center; font-size: 20px; color: #BDD3E5">Illustration: Lead Follow-Up</figcaption>
 </figure>
 </div>
 <div class="cards" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 10px">
-<a href="/services/ai-automations/sales-engine" class="card" data-in style="--d: .05s; --rot: -1.5deg; position: relative; display: block; text-decoration: none; background: #FFFDF8; color: #1B1F1C; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #2F6B4F; line-height: 1">01</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Sales Engine</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #3A3F3B">Campaigns, follow-up, your CRM and sales orders, from first email to signed order.</p><span style="font-weight: 700; font-size: 15px; color: #1F5A3F">See the package →</span></a>
-<a href="/services/ai-automations/front-desk" class="card" data-in style="--d: .15s; --rot: 1deg; position: relative; display: block; text-decoration: none; background: #DCEBDD; color: #1B1F1C; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #2F6B4F; line-height: 1">02</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Front Desk</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #3A3F3B">Every call answered around the clock, every booking confirmed and kept.</p><span style="font-weight: 700; font-size: 15px; color: #1F5A3F">See the package →</span></a>
-<a href="/services/ai-automations/customer-loop" class="card" data-in style="--d: .25s; --rot: -0.8deg; position: relative; display: block; text-decoration: none; background: #D9C7A3; color: #1B1F1C; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #1F5A3F; line-height: 1">03</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Customer Loop</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #2E2A22">Fair review requests and welcome-back notes, only for customers who said yes.</p><span style="font-weight: 700; font-size: 15px; color: #1F5A3F">See the package →</span></a>
+<a href="/services/ai-automations/sales-engine" class="card" data-in style="--d: .05s; --rot: -1.5deg; position: relative; display: block; text-decoration: none; background: #FFFDF8; color: #1B1D1F; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">01</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Sales Engine</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #3A3D3F">Campaigns, follow-up, your CRM and sales orders, from first email to signed order.</p><span style="font-weight: 700; font-size: 15px; color: #1B3A5E">See the package →</span></a>
+<a href="/services/ai-automations/front-desk" class="card" data-in style="--d: .15s; --rot: 1deg; position: relative; display: block; text-decoration: none; background: #DBE5EC; color: #1B1D1F; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">02</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Front Desk</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #3A3D3F">Every call answered around the clock, every booking confirmed and kept.</p><span style="font-weight: 700; font-size: 15px; color: #1B3A5E">See the package →</span></a>
+<a href="/services/ai-automations/customer-loop" class="card" data-in style="--d: .25s; --rot: -0.8deg; position: relative; display: block; text-decoration: none; background: #D9C7A3; color: #1B1D1F; padding: 28px 24px; box-shadow: 0 16px 30px -20px rgba(0,0,0,.6)"><span class="tape"></span><span class="serif" style="display: block; font-size: 48px; font-weight: 800; font-style: italic; color: #1B3A5E; line-height: 1">03</span><h3 class="serif" style="margin: 10px 0 10px; font-size: 24px; font-weight: 800">Customer Loop</h3><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.55; color: #2E2A22">Fair review requests and welcome-back notes, only for customers who said yes.</p><span style="font-weight: 700; font-size: 15px; color: #1B3A5E">See the package →</span></a>
 </div>
-<p class="hand swipe" aria-hidden="true" style="margin: 6px 0 0; font-size: 22px; color: #BFE3C9">Swipe for All 3 →</p>
+<p class="hand swipe" aria-hidden="true" style="margin: 6px 0 0; font-size: 22px; color: #BDD3E5">Swipe for All 3 →</p>
 </div>
 </section>
 
 <section class="wrap sec ptn" style="padding-top: 40px; padding-bottom: 112px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: center">
-<figure class="polaroid" data-in="drop" style="--rot: -3.5deg; margin: 0; justify-self: center; width: min(420px, 100%); background: #FFFDF8; padding: 16px 16px 14px; box-shadow: 0 22px 40px -24px rgba(27,31,28,.65); position: relative">
+<figure class="polaroid" data-in="drop" style="--rot: -3.5deg; margin: 0; justify-self: center; width: min(420px, 100%); background: #FFFDF8; padding: 16px 16px 14px; box-shadow: 0 22px 40px -24px rgba(27,29,31,.65); position: relative">
 <span class="tape"></span>
-<div role="img" aria-label="Illustration: a NEEL partner and a client working at one laptop" style="position: relative; aspect-ratio: 5 / 4; background: #DCEBDD; overflow: hidden">
+<div role="img" aria-label="Illustration: a NEEL partner and a client working at one laptop" style="position: relative; aspect-ratio: 5 / 4; background: #DBE5EC; overflow: hidden">
 <span style="position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: #D9C7A3"></span>
-<span style="position: absolute; left: 14%; bottom: 26%; width: 18%; height: 34%; border-radius: 40px 40px 6px 6px; background: #2F6B4F"></span>
-<span style="position: absolute; left: 16.5%; bottom: 58%; width: 13%; aspect-ratio: 1 / 1; border-radius: 50%; background: #1B1F1C"></span>
-<span style="position: absolute; right: 14%; bottom: 26%; width: 18%; height: 38%; border-radius: 40px 40px 6px 6px; background: #F4EFE4; border: 3px solid #1B1F1C"></span>
+<span style="position: absolute; left: 14%; bottom: 26%; width: 18%; height: 34%; border-radius: 40px 40px 6px 6px; background: #2B4B6F"></span>
+<span style="position: absolute; left: 16.5%; bottom: 58%; width: 13%; aspect-ratio: 1 / 1; border-radius: 50%; background: #1B1D1F"></span>
+<span style="position: absolute; right: 14%; bottom: 26%; width: 18%; height: 38%; border-radius: 40px 40px 6px 6px; background: #F4EFE4; border: 3px solid #1B1D1F"></span>
 <span style="position: absolute; right: 16.5%; bottom: 62%; width: 13%; aspect-ratio: 1 / 1; border-radius: 50%; background: #A8956F"></span>
-<span style="position: absolute; left: 37%; bottom: 30%; width: 26%; height: 24%; background: #1B1F1C; border-radius: 6px 6px 0 0; padding: 6%"><span style="display: block; width: 100%; height: 100%; background: #7DBF95; border-radius: 3px"></span></span>
-<span style="position: absolute; left: 32%; bottom: 26%; width: 36%; height: 4%; background: #1B1F1C; border-radius: 3px"></span>
+<span style="position: absolute; left: 37%; bottom: 30%; width: 26%; height: 24%; background: #1B1D1F; border-radius: 6px 6px 0 0; padding: 6%"><span style="display: block; width: 100%; height: 100%; background: #799FC3; border-radius: 3px"></span></span>
+<span style="position: absolute; left: 32%; bottom: 26%; width: 36%; height: 4%; background: #1B1D1F; border-radius: 3px"></span>
 </div>
-<figcaption class="hand" style="margin-top: 12px; text-align: center; font-size: 26px; color: #1B1F1C">Your Team + One of Ours</figcaption>
+<figcaption class="hand" style="margin-top: 12px; text-align: center; font-size: 26px; color: #1B1D1F">Your Team + One of Ours</figcaption>
 </figure>
 <div>
-<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1F5A3F">How We Work · The Solutions Partner</p>
-<h2 class="serif h2" data-in style="--d: .1s; margin: 0; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">A Solutions Partner, placed <span style="position: relative; display: inline-block; font-style: italic; color: #2F6B4F">inside your business.<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 300 20" preserveAspectRatio="none" style="--d: .6s; position: absolute; left: 0; bottom: -0.08em; width: 100%; height: 0.22em; overflow: visible"><path pathLength="1" d="M3 12 C 70 4, 150 18, 220 9 S 285 10, 297 8" fill="none" stroke="#7DBF95" stroke-width="6" stroke-linecap="round"></path></svg></span></h2>
-<p data-in style="--d: .2s; margin: 26px 0 28px; font-size: 18px; color: #3A3F3B; max-width: 560px">For the stage where plans usually stall: one of our Solutions Partners works alongside your team, connects the systems you already run, builds the automation and AI agents the plan depends on, and stays until it runs.</p>
-<a href="/how-we-work" class="btn" data-in style="--d: .3s; display: inline-block; background: #1B1F1C; color: #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">How it works</a>
+<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1B3A5E">How We Work · The Solutions Partner</p>
+<h2 class="serif h2" data-in style="--d: .1s; margin: 0; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">A Solutions Partner, placed <span style="position: relative; display: inline-block; font-style: italic; color: #2B4B6F">inside your business.<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 300 20" preserveAspectRatio="none" style="--d: .6s; position: absolute; left: 0; bottom: -0.08em; width: 100%; height: 0.22em; overflow: visible"><path pathLength="1" d="M3 12 C 70 4, 150 18, 220 9 S 285 10, 297 8" fill="none" stroke="#799FC3" stroke-width="6" stroke-linecap="round"></path></svg></span></h2>
+<p data-in style="--d: .2s; margin: 26px 0 28px; font-size: 18px; color: #3A3D3F; max-width: 560px">For the stage where plans usually stall: one of our Solutions Partners works alongside your team, connects the systems you already run, builds the automation and AI agents the plan depends on, and stays until it runs.</p>
+<a href="/how-we-work" class="btn" data-in style="--d: .3s; display: inline-block; background: #1B1D1F; color: #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">How it works</a>
 </div>
 </section>
 
 <section class="wrap sec cta" style="padding-top: 96px; padding-bottom: 120px; border-top: 2px dashed #CFC6B4; text-align: center">
-<p class="hand" data-in style="margin: 0 0 6px; font-size: 28px; color: #1F5A3F">Next Step</p>
-<h2 class="serif" data-in style="--d: .1s; margin: 0; font-size: clamp(48px, 7.4vw, 108px); line-height: 0.98; font-weight: 800; letter-spacing: -0.03em">Start with the <span style="font-style: italic; color: #2F6B4F">question.</span></h2>
-<p data-in style="--d: .2s; margin: 22px auto 40px; max-width: 520px; font-size: 19px; color: #3A3F3B">Tell us what you are deciding and when. A short message is enough.</p>
-<a href="mailto:admin@neeladvisory.my" class="btn" data-in="drop" style="--d: .35s; --rot: -2deg; position: relative; display: inline-block; background: #DCEBDD; padding: 26px 34px 22px; text-decoration: none; box-shadow: 0 18px 34px -20px rgba(27,31,28,.6)"><span class="tape"></span><span class="hand" style="display: block; font-size: 22px; color: #1F5A3F; line-height: 1">Write to Us</span><span class="serif" style="display: block; font-size: clamp(22px, 2.6vw, 34px); font-weight: 800">admin@neeladvisory.my</span></a>
+<p class="hand" data-in style="margin: 0 0 6px; font-size: 28px; color: #1B3A5E">Next Step</p>
+<h2 class="serif" data-in style="--d: .1s; margin: 0; font-size: clamp(48px, 7.4vw, 108px); line-height: 0.98; font-weight: 800; letter-spacing: -0.03em">Start with the <span style="font-style: italic; color: #2B4B6F">question.</span></h2>
+<p data-in style="--d: .2s; margin: 22px auto 40px; max-width: 520px; font-size: 19px; color: #3A3D3F">Tell us what you are deciding and when. A short message is enough.</p>
+<a href="mailto:admin@neeladvisory.my" class="btn" data-in="drop" style="--d: .35s; --rot: -2deg; position: relative; display: inline-block; background: #DBE5EC; padding: 26px 34px 22px; text-decoration: none; box-shadow: 0 18px 34px -20px rgba(27,29,31,.6)"><span class="tape"></span><span class="hand" style="display: block; font-size: 22px; color: #1B3A5E; line-height: 1">Write to Us</span><span class="serif" style="display: block; font-size: clamp(22px, 2.6vw, 34px); font-weight: 800">admin@neeladvisory.my</span></a>
 </section>
 
-<footer style="background: #17261E; color: #C9D6CD">
+<footer style="background: #161E27; color: #C9D0D6">
 <div class="wrap foot" style="padding-top: 36px; padding-bottom: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; font-size: 13px">
 <span>NEEL Advisory PLT, Registration No. 202604002734 (LLP0047979-LGN), a limited liability partnership registered in Malaysia.</span>
-<span style="display: flex; gap: 20px"><a href="/privacy" style="color: #C9D6CD">Privacy notice</a><span>© 2026</span></span>
+<span style="display: flex; gap: 20px"><a href="/privacy" style="color: #C9D0D6">Privacy notice</a><span>© 2026</span></span>
 </div>
 </footer>
 
 </div>
 
 <div id="menu" hidden>
-<div role="dialog" aria-label="Menu" style="position: fixed; inset: 0; z-index: 60; background: #2F6B4F; color: #F4EFE4; padding: 18px 20px 28px; display: flex; flex-direction: column">
+<div role="dialog" aria-label="Menu" style="position: fixed; inset: 0; z-index: 60; overflow-y: auto; background: #2B4B6F; color: #F4EFE4; padding: 18px 20px 28px; display: flex; flex-direction: column">
 <div style="display: flex; align-items: center; justify-content: space-between">
-<span class="serif" style="font-weight: 800; font-size: 23px">NEEL <span style="font-style: italic; font-weight: 600; color: #BFE3C9">Advisory</span></span>
+<span style="display: flex; align-items: center; gap: 10px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32" aria-hidden="true" focusable="false"><path d="M34.93 32.30 L47.01 25.32 L47.01 17.42 L28.09 28.35ZM50.00 41.00 L56.49 37.25 L56.49 29.35 L43.16 37.05ZM80.49 32.90 L80.49 75.60 L87.33 71.65 L87.33 28.95ZM20.21 75.60 L27.05 71.65 L27.05 65.69 L20.21 43.69ZM50.35 93.00 L57.36 88.95 L77.15 77.52 L77.15 69.63 L57.19 81.15 L57.19 71.65 L71.56 63.35 L71.56 55.45 L57.19 63.75 L57.19 54.25 L77.15 42.72 L77.15 34.82 L57.71 46.05 L50.35 50.30ZM42.12 60.72 L39.82 53.32 L29.88 47.58 L42.12 86.96Z" fill="#BDD3E5"/><path d="M42.81 13.79 L47.54 16.52 L47.56 16.54 L47.59 16.56 L47.61 16.58 L47.64 16.61 L47.66 16.63 L47.67 16.66 L47.69 16.69 L47.70 16.72 L47.70 16.76 L47.71 16.79 L47.71 16.81 L47.71 22.28 L65.07 32.30 L69.80 29.57 L69.82 29.55 L69.85 29.54 L69.89 29.53 L69.92 29.53 L69.95 29.52 L69.98 29.52 L70.02 29.53 L70.05 29.53 L70.08 29.54 L70.11 29.55 L70.13 29.57 L72.78 31.09 L77.68 33.92 L77.70 33.94 L77.73 33.96 L77.75 33.98 L77.78 34.01 L77.80 34.03 L77.81 34.06 L77.83 34.09 L77.84 34.12 L77.84 34.16 L77.85 34.19 L77.85 34.21 L77.85 42.93 L77.85 42.96 L77.84 42.99 L77.84 43.02 L77.83 43.05 L77.81 43.08 L77.80 43.11 L77.78 43.14 L77.75 43.16 L77.73 43.19 L77.70 43.21 L77.68 43.22 L72.95 45.95 L72.95 66.00 L77.68 68.73 L77.70 68.74 L77.73 68.76 L77.75 68.78 L77.78 68.81 L77.80 68.84 L77.81 68.86 L77.83 68.89 L77.84 68.93 L77.84 68.96 L77.85 68.99 L77.85 69.02 L77.85 74.48 L79.79 75.60 L79.79 32.90 L72.43 28.65 L42.81 11.55ZM12.67 71.65 L19.51 75.60 L19.51 40.80 L42.81 54.25 L42.81 89.05 L49.65 93.00 L49.65 50.30 L12.67 28.95ZM41.87 88.51 L28.99 47.07 L20.46 42.15 L33.34 83.58Z" fill="#E2E9EF"/><path d="M80.14 32.30 L86.98 28.35 L79.97 24.30 L50.00 7.00 L43.16 10.95 L72.78 28.05ZM20.56 24.00 L27.40 27.95 L46.67 16.82 L39.83 12.87ZM19.86 24.40 L13.02 28.35 L50.00 49.70 L57.36 45.45 L76.81 34.22 L69.97 30.27 L50.00 41.80 L41.77 37.05 L56.15 28.75 L49.31 24.80 L34.93 33.10ZM64.38 50.90 L57.88 54.65 L57.88 62.55 L71.22 54.85ZM69.97 65.08 L57.88 72.05 L57.88 79.95 L76.81 69.02Z" fill="#799FC3"/></svg><span class="serif" style="font-weight: 800; font-size: 23px">NEEL <span style="font-weight: 600; color: #BDD3E5">Advisory</span></span></span>
 <button type="button" data-menu-toggle aria-label="Close menu" style="min-height: 44px; padding: 0 18px; border: 1.5px solid #F4EFE4; border-radius: 999px; background: transparent; color: #F4EFE4; font: 600 14px Inter, sans-serif; cursor: pointer">Close</button>
 </div>
-<nav aria-label="Mobile" class="serif" style="margin-top: 44px; display: flex; flex-direction: column; gap: 4px; font-weight: 800; font-size: 38px; line-height: 1.15; letter-spacing: -0.02em">
-<a href="/" class="menu-in" style="color: #BFE3C9; text-decoration: none; font-style: italic; animation-delay: .05s">Home</a>
-<a href="/services/strategy-advisory" class="menu-in" style="color: #F4EFE4; text-decoration: none; animation-delay: .1s">Strategy &amp; Advisory</a>
-<a href="/services/ai-automations" class="menu-in" style="color: #F4EFE4; text-decoration: none; animation-delay: .15s">AI &amp; Automations</a>
-<a href="/how-we-work" class="menu-in" style="color: #F4EFE4; text-decoration: none; animation-delay: .2s">How we work</a>
-<a href="/about" class="menu-in" style="color: #F4EFE4; text-decoration: none; animation-delay: .25s">About</a>
-<a href="mailto:admin@neeladvisory.my" class="menu-in" style="margin-top: 12px; color: #1B1F1C; background: #F4EFE4; border-radius: 999px; padding: 14px 24px; text-align: center; font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 0; text-decoration: none; animation-delay: .3s">Get in touch</a>
-</nav>
-<div class="menu-in" style="margin-top: auto; display: flex; justify-content: space-between; font-size: 14px; color: #DCEBDD; animation-delay: .33s"><span>admin@neeladvisory.my</span></div>
+<nav aria-label="Mobile" class="mnav"><a href="/" class="menu-in mnav-top" aria-current="page" style="color: #BDD3E5; font-style: italic; text-decoration: none; animation-delay: 0.05s">Home</a><details class="mnav-grp menu-in" style="animation-delay: 0.1s"><summary style="color: #F4EFE4">Strategy &amp; Advisory<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/strategy-advisory" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/strategy-advisory#strategy-financial" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Strategy &amp; Financial</a><a href="/services/strategy-advisory#operations-systems" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Operations &amp; Systems</a><a href="/services/strategy-advisory#delivery-performance" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Delivery &amp; Performance</a></div></details><details class="mnav-grp menu-in" style="animation-delay: 0.15s"><summary style="color: #F4EFE4">AI &amp; Automations<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/ai-automations" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/ai-automations/sales-engine" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Sales Engine</a><a href="/services/ai-automations/front-desk" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Front Desk</a><a href="/services/ai-automations/customer-loop" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Customer Loop</a></div></details><a href="/how-we-work" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.2s">How we work</a><a href="/about" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.25s">About</a></nav>
+<div class="menu-in" style="margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; gap: 14px; animation-delay: .3s">
+<a href="mailto:admin@neeladvisory.my" style="background: #F4EFE4; color: #1B1D1F; padding: 15px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; text-align: center">Get in touch</a>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #DBE5EC"><span>admin@neeladvisory.my</span></div>
+</div>
 </div>
 </div>
 </div>
