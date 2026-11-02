@@ -4,7 +4,7 @@
   "redirects": [
     {
       "source": "/login",
-      "destination": "https://neel-os-wheat.vercel.app/dashboard",
+      "destination": "https://app.neeladvisory.my/dashboard",
       "permanent": false
     },
     {
