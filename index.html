@@ -137,6 +137,9 @@ a{color:inherit}
 @media (prefers-reduced-motion: reduce){.mnav-grp[open] .mnav-subs{animation:none}.mnav-chev{transition:none}}
 .navlinks a{white-space:nowrap}
 @media (max-width: 1000px){.navlinks{display:none !important}.burger{display:inline-flex !important}}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:-10px;border-radius:50%;border:1.5px solid currentColor;text-decoration:none;transition:transform .3s cubic-bezier(.2,.9,.25,1.15),background .2s}
+.avatar:hover{transform:translateY(-2px);background:rgba(127,140,160,.14)}
+.avatar:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://neeladvisory.my/#business", "name": "NEEL Advisory", "legalName": "NEEL Advisory PLT", "url": "https://neeladvisory.my/", "logo": "https://neeladvisory.my/assets/brand/neel-logo.jpg", "image": "https://neeladvisory.my/assets/og.jpg", "description": "NEEL Advisory delivers strategy, business plans and project management for SMEs, family businesses, corporations and GLCs in Malaysia, and builds and runs the automation tools the plan needs.", "email": "admin@neeladvisory.my", "foundingDate": "2026-10-19", "identifier": {"@type": "PropertyValue", "propertyID": "SSM registration number", "value": "202604002734 (LLP0047979-LGN)"}, "address": {"@type": "PostalAddress", "addressLocality": "Subang Jaya", "addressRegion": "Selangor", "addressCountry": "MY"}, "areaServed": {"@type": "Country", "name": "Malaysia"}, "knowsLanguage": ["en", "ms"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Consultancy and automation packages", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Strategy & Advisory", "url": "https://neeladvisory.my/services/strategy-advisory"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sales Engine", "url": "https://neeladvisory.my/services/ai-automations/sales-engine"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Front Desk", "url": "https://neeladvisory.my/services/ai-automations/front-desk"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Customer Loop", "url": "https://neeladvisory.my/services/ai-automations/customer-loop"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Solutions Partner", "url": "https://neeladvisory.my/how-we-work"}}]}}</script>
 <script src="/js/site.js" defer></script>
@@ -158,8 +161,8 @@ a{color:inherit}
 <a href="/services/ai-automations" style="text-decoration: none">AI &amp; Automations</a>
 <a href="/how-we-work" style="text-decoration: none">How we work</a>
 <a href="/about" style="text-decoration: none">About</a>
-<a href="/login" style="text-decoration: none">Log in</a>
 <a href="mailto:admin@neeladvisory.my" class="btn" style="background: #2B4B6F; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">Get in touch</a>
+<a href="/login" class="avatar" aria-label="Log in to NEEL OS" title="Log in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
 </nav>
 <button type="button" class="burger" data-menu-toggle aria-label="Open menu" aria-expanded="false" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1.5px solid #1B1D1F; border-radius: 999px; background: transparent; color: #1B1D1F; font: 600 14px Inter, sans-serif; cursor: pointer">Menu</button>
 </header>

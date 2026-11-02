@@ -116,6 +116,9 @@ a{color:inherit}
 @media (prefers-reduced-motion: reduce){.mnav-grp[open] .mnav-subs{animation:none}.mnav-chev{transition:none}}
 .navlinks a{white-space:nowrap}
 @media (max-width: 1000px){.navlinks{display:none !important}.burger{display:inline-flex !important}}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:-10px;border-radius:50%;border:1.5px solid currentColor;text-decoration:none;transition:transform .3s cubic-bezier(.2,.9,.25,1.15),background .2s}
+.avatar:hover{transform:translateY(-2px);background:rgba(127,140,160,.14)}
+.avatar:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 </style>
 <script src="/js/site.js" defer></script>
 <script src="/_vercel/insights/script.js" defer></script>
@@ -136,8 +139,8 @@ a{color:inherit}
 <a href="/services/ai-automations" aria-current="page" style="text-decoration: none">AI &amp; Automations</a>
 <a href="/how-we-work" style="text-decoration: none">How we work</a>
 <a href="/about" style="text-decoration: none">About</a>
-<a href="/login" style="text-decoration: none">Log in</a>
 <a href="mailto:admin@neeladvisory.my" class="btn" style="background: #2B4B6F; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600">Get in touch</a>
+<a href="/login" class="avatar" aria-label="Log in to NEEL OS" title="Log in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
 </nav>
 <button type="button" class="burger" data-menu-toggle aria-label="Open menu" aria-expanded="false" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1.5px solid #1B1D1F; border-radius: 999px; background: transparent; color: #1B1D1F; font: 600 14px Inter, sans-serif; cursor: pointer">Menu</button>
 </header>
