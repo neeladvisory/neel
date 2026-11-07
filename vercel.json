@@ -3,6 +3,31 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/services/ai-automations/sales-engine",
+      "destination": "/services/ai-automations/operation-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-automations/front-desk",
+      "destination": "/services/ai-automations/ai-voice-receptionist",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-automations/customer-loop",
+      "destination": "/services/ai-automations",
+      "permanent": false
+    },
+    {
+      "source": "/ai-receptionist",
+      "destination": "/services/ai-automations/ai-voice-receptionist",
+      "permanent": false
+    },
+    {
+      "source": "/personal",
+      "destination": "/services/ai-automations/personal",
+      "permanent": false
+    },
+    {
       "source": "/login",
       "destination": "https://app.neeladvisory.my/dashboard",
       "permanent": false
@@ -24,17 +49,17 @@
     },
     {
       "source": "/services/ai-automations/never-miss-a-customer",
-      "destination": "/services/ai-automations/front-desk",
+      "destination": "/services/ai-automations/ai-voice-receptionist",
       "permanent": true
     },
     {
       "source": "/services/ai-automations/keep-them-coming-back",
-      "destination": "/services/ai-automations/customer-loop",
+      "destination": "/services/ai-automations",
       "permanent": true
     },
     {
       "source": "/services/ai-automations/run-the-back-office",
-      "destination": "/services/ai-automations/sales-engine",
+      "destination": "/services/ai-automations/operation-automation",
       "permanent": true
     },
     {
@@ -59,17 +84,17 @@
     },
     {
       "source": "/ms/perkhidmatan/ai-automasi/jangan-terlepas-pelanggan",
-      "destination": "/services/ai-automations/front-desk",
+      "destination": "/services/ai-automations/ai-voice-receptionist",
       "permanent": false
     },
     {
       "source": "/ms/perkhidmatan/ai-automasi/pastikan-mereka-kembali",
-      "destination": "/services/ai-automations/customer-loop",
+      "destination": "/services/ai-automations",
       "permanent": false
     },
     {
       "source": "/ms/perkhidmatan/ai-automasi/uruskan-pejabat-belakang",
-      "destination": "/services/ai-automations/sales-engine",
+      "destination": "/services/ai-automations/operation-automation",
       "permanent": false
     },
     {
