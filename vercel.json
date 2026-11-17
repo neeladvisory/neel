@@ -4,7 +4,7 @@
   "redirects": [
     {
       "source": "/services/ai-automations/sales-engine",
-      "destination": "/services/ai-automations/operation-automation",
+      "destination": "/services/ai-automations/agentic-automation",
       "permanent": true
     },
     {
@@ -59,7 +59,7 @@
     },
     {
       "source": "/services/ai-automations/run-the-back-office",
-      "destination": "/services/ai-automations/operation-automation",
+      "destination": "/services/ai-automations/agentic-automation",
       "permanent": true
     },
     {
@@ -94,7 +94,7 @@
     },
     {
       "source": "/ms/perkhidmatan/ai-automasi/uruskan-pejabat-belakang",
-      "destination": "/services/ai-automations/operation-automation",
+      "destination": "/services/ai-automations/agentic-automation",
       "permanent": false
     },
     {
