@@ -3,7 +3,6 @@
 /services/ai-automations/customer-loop /services/ai-automations 302
 /ai-receptionist /services/ai-automations/ai-voice-receptionist 302
 /personal /services/ai-automations/personal 302
-/login https://app.neeladvisory.my/dashboard 302
 /contact / 301
 /perkhidmatan /services/strategy-advisory 302
 /services /services/strategy-advisory 301
