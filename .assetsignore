@@ -1,0 +1,7 @@
+wrangler.jsonc
+vercel.json
+README.md
+.gitignore
+.assetsignore
+.git
+node_modules
