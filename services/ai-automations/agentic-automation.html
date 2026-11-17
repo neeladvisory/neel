@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Operation Automation · AI &amp; Automations · NEEL Advisory</title>
-<meta name="description" content="The paperwork that follows a sale, done the same hour: automated sales order confirmation from a completed form, and email campaigns drafted, scheduled and sent by an agent you approve.">
-<link rel="canonical" href="https://neeladvisory.my/services/ai-automations/operation-automation">
+<title>Agentic AI Automation · AI &amp; Automations · NEEL Advisory</title>
+<meta name="description" content="A small team of AI agents for marketing, sales, operations, finance and customer support. They share one CRM, hand work to each other, and you approve anything that goes out.">
+<link rel="canonical" href="https://neeladvisory.my/services/ai-automations/agentic-automation">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NEEL Advisory">
 <meta property="og:locale" content="en_MY">
-<meta property="og:title" content="Operation Automation · AI &amp; Automations · NEEL Advisory">
-<meta property="og:description" content="The paperwork that follows a sale, done the same hour: automated sales order confirmation from a completed form, and email campaigns drafted, scheduled and sent by an agent you approve.">
-<meta property="og:url" content="https://neeladvisory.my/services/ai-automations/operation-automation">
+<meta property="og:title" content="Agentic AI Automation · AI &amp; Automations · NEEL Advisory">
+<meta property="og:description" content="A small team of AI agents for marketing, sales, operations, finance and customer support. They share one CRM, hand work to each other, and you approve anything that goes out.">
+<meta property="og:url" content="https://neeladvisory.my/services/ai-automations/agentic-automation">
 <meta property="og:image" content="https://neeladvisory.my/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2B4B6F">
@@ -114,6 +114,17 @@ a{color:inherit}
 .avatar:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .tshort{display:none}
 @media (max-width: 1120px){.navlinks .tlong{display:none}.navlinks .tshort{display:inline}}
+
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"mk hub sl" "op hub fn" ". sp .";gap:18px}
+.team .a-mk{grid-area:mk}.team .a-sl{grid-area:sl}.team .a-op{grid-area:op}.team .a-fn{grid-area:fn}.team .a-sp{grid-area:sp}.team .hub{grid-area:hub}
+.ag h3{display:flex;align-items:center;gap:10px}
+.dot{flex:none;width:10px;height:10px;border-radius:50%;background:#3E8E5E;box-shadow:0 0 0 0 rgba(62,142,94,.55);animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(62,142,94,.55)}70%,100%{box-shadow:0 0 0 9px rgba(62,142,94,0)}}
+.hand-off{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #CFC6B4;font-size:13px;color:#5A5D5F}
+@media (max-width: 820px){
+.team{grid-template-columns:1fr;grid-template-areas:"hub" "mk" "sl" "op" "fn" "sp"}
+}
+@media (prefers-reduced-motion: reduce){.dot{animation:none}}
 </style>
 <script src="/js/site.js" defer></script>
 </head>
@@ -142,55 +153,79 @@ a{color:inherit}
 <section class="wrap hero split" style="padding-top: 40px; padding-bottom: 112px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 64px; align-items: center">
 <div>
 <p data-in style="--d: .05s; margin: 0 0 14px; font-size: 14px; font-weight: 600"><a href="/services/ai-automations" style="color: #BDD3E5">AI &amp; Automations</a> <span style="color: #6F7A85">/</span> <span style="color: #C9D0D6">Product 02</span></p>
-<p class="hand" data-in style="--d: .1s; margin: 0 0 2px; font-size: 28px; color: #799FC3">The Paperwork After Yes</p>
-<h1 class="serif" data-in style="--d: .15s; margin: 0; font-size: clamp(64px, 8.6vw, 128px); line-height: 0.92; font-weight: 800; letter-spacing: -0.035em">Operation<br><span style="font-style: italic; color: #799FC3">Automation.</span></h1>
-<p class="lede" data-in style="--d: .45s; margin: 30px 0 0; max-width: 520px; font-size: 20px; color: #DCE2E6">Two automations that remove the slowest part of selling. A completed booking form becomes a numbered sales order and a confirmation email within minutes, in the format your customers need. And an agent drafts, schedules and sends your email campaigns to people who opted in, once you approve. Both write into one CRM.</p>
+<p class="hand" data-in style="--d: .1s; margin: 0 0 2px; font-size: 28px; color: #799FC3">A Team That Never Clocks Out</p>
+<h1 class="serif" data-in style="--d: .15s; margin: 0; font-size: clamp(60px, 8vw, 118px); line-height: 0.92; font-weight: 800; letter-spacing: -0.035em">Agentic AI<br><span style="font-style: italic; color: #799FC3">Automation.</span></h1>
+<p class="lede" data-in style="--d: .45s; margin: 30px 0 0; max-width: 540px; font-size: 20px; color: #DCE2E6">AI agents that run the busywork, across the business. Five agents cover marketing, sales, operations, finance and customer support. They share one CRM, pass work to each other, and you approve anything that goes out.</p>
 <div class="hero-ctas" data-in style="--d: .6s; margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px">
-<a href="https://tally.so/r/kblXdJ" class="btn" style="background: #799FC3; color: #161E27; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 700">Automate my operations</a>
-<a href="#flow" class="btn" style="border: 1.5px solid #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">See the flow ↓</a>
+<a href="https://tally.so/r/kblXdJ" class="btn" style="background: #799FC3; color: #161E27; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 700">Put the agents to work</a>
+<a href="#team" class="btn" style="border: 1.5px solid #F4EFE4; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Meet the team ↓</a>
 </div>
 </div>
 
 <figure style="margin: 0; position: relative; padding: 30px 0 10px">
-<div aria-hidden="true" style="position: absolute; left: 0; top: 40%; width: 100%; height: 0">
-<svg class="env" width="54" height="38" viewBox="0 0 54 38" style="left: 0; top: -60px; animation-delay: 0s"><rect x="1" y="1" width="52" height="36" rx="3" fill="#FFFDF8" stroke="#BDD3E5" stroke-width="2"></rect><path d="M2 3 L27 21 L52 3" fill="none" stroke="#2B4B6F" stroke-width="2"></path></svg>
-<svg class="env" width="54" height="38" viewBox="0 0 54 38" style="left: 0; top: 10px; animation-delay: 1.8s"><rect x="1" y="1" width="52" height="36" rx="3" fill="#FFFDF8" stroke="#BDD3E5" stroke-width="2"></rect><path d="M2 3 L27 21 L52 3" fill="none" stroke="#2B4B6F" stroke-width="2"></path></svg>
-<svg class="env" width="54" height="38" viewBox="0 0 54 38" style="left: 0; top: 80px; animation-delay: 3.6s"><rect x="1" y="1" width="52" height="36" rx="3" fill="#FFFDF8" stroke="#BDD3E5" stroke-width="2"></rect><path d="M2 3 L27 21 L52 3" fill="none" stroke="#2B4B6F" stroke-width="2"></path></svg>
-</div>
-<div class="so paper type" data-in="drop" role="img" aria-label="Illustration: a sales order assembling itself from CRM data, then stamped issued" style="--d: .3s; --rot: 2.5deg; margin-left: auto; width: min(440px, 100%); padding: 30px 28px 78px; font-size: 14.5px; line-height: 1.5; color: #1B1D1F">
+<div class="so paper type" data-in="drop" role="img" aria-label="Illustration: a roster of five AI agents switching on, one by one" style="--d: .3s; --rot: 2.5deg; margin-left: auto; width: min(440px, 100%); padding: 30px 28px 78px; font-size: 14.5px; line-height: 1.5; color: #1B1D1F">
 <span class="tape"></span>
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding-bottom: 12px; border-bottom: 2px solid #1B1D1F">
-<span style="font-weight: 700; font-size: 18px; letter-spacing: .06em">SALES ORDER</span>
-<span style="font-size: 13px">No. SO-0001</span>
+<span style="font-weight: 700; font-size: 18px; letter-spacing: .06em">AGENT ROSTER</span>
+<span style="font-size: 13px">Shared CRM</span>
 </div>
-<div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 10px 14px; padding: 16px 0; border-bottom: 1px dashed #B9B2A3">
-<span class="ln" style="--ld: .9s; color: #6A6D6F">CUSTOMER</span><span class="ln" style="--ld: .9s">From the sign-up form</span>
-<span class="ln" style="--ld: 1.25s; color: #6A6D6F">ITEM</span><span class="ln" style="--ld: 1.25s">From the deal in your CRM</span>
-<span class="ln" style="--ld: 1.6s; color: #6A6D6F">DATES / QTY</span><span class="ln" style="--ld: 1.6s">As agreed</span>
-<span class="ln" style="--ld: 1.95s; color: #6A6D6F">TERMS</span><span class="ln" style="--ld: 1.95s">Your standard terms</span>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 14px; padding: 16px 0; border-bottom: 1px dashed #B9B2A3">
+<span class="ln" style="--ld: .9s">Marketing agent</span><span class="ln" style="--ld: .9s; color: #3E8E5E; font-weight: 700">● ON</span>
+<span class="ln" style="--ld: 1.2s">Sales agent</span><span class="ln" style="--ld: 1.2s; color: #3E8E5E; font-weight: 700">● ON</span>
+<span class="ln" style="--ld: 1.5s">Operations agent</span><span class="ln" style="--ld: 1.5s; color: #3E8E5E; font-weight: 700">● ON</span>
+<span class="ln" style="--ld: 1.8s">Finance agent</span><span class="ln" style="--ld: 1.8s; color: #3E8E5E; font-weight: 700">● ON</span>
+<span class="ln" style="--ld: 2.1s">Support agent</span><span class="ln" style="--ld: 2.1s; color: #3E8E5E; font-weight: 700">● ON</span>
 </div>
-<div class="ln" style="--ld: 2.3s; display: flex; justify-content: space-between; padding-top: 12px; font-size: 13px"><span>Sent to customer ✓</span><span>Logged in CRM ✓</span></div>
-<span data-in="stamp" aria-hidden="true" style="--d: 2.9s; --rot: -12deg; position: absolute; right: 26px; bottom: 20px; border: 3px solid #2B4B6F; border-radius: 8px; padding: 4px 14px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .18em; color: #2B4B6F; background: rgba(255,253,248,.88)">ISSUED</span>
+<div class="ln" style="--ld: 2.4s; display: flex; justify-content: space-between; padding-top: 12px; font-size: 13px"><span>Approvals: you ✓</span><span>Logged in CRM ✓</span></div>
+<span data-in="stamp" aria-hidden="true" style="--d: 2.9s; --rot: -12deg; position: absolute; right: 26px; bottom: 20px; border: 3px solid #2B4B6F; border-radius: 8px; padding: 4px 14px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .18em; color: #2B4B6F; background: rgba(255,253,248,.88)">ON DUTY</span>
 </div>
-<figcaption class="hand" style="margin-top: 18px; text-align: right; font-size: 21px; color: #BDD3E5">Illustration: a won deal becomes a sales order</figcaption>
+<figcaption class="hand" style="margin-top: 18px; text-align: right; font-size: 21px; color: #BDD3E5">Illustration: five agents, one record</figcaption>
 </figure>
 </section>
 </div>
+
+<section id="team" class="sec" style="padding-top: 104px; padding-bottom: 112px; background: #2B4B6F; color: #F4EFE4">
+<div class="wrap">
+<div class="split" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: end; margin-bottom: 48px">
+<div>
+<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #BDD3E5">The Team</p>
+<h2 class="serif h2" data-in style="margin: 0; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">One business, <span style="font-style: italic; color: #BDD3E5">five agents.</span></h2>
+</div>
+<p data-in style="--d: .1s; margin: 0; color: #DCE2E6">Each agent owns one part of the business. All five read from and write to the same CRM, so nobody asks the customer the same question twice.</p>
+</div>
+<div class="team">
+<div class="hub card paper" data-in style="--rot: -1deg; padding: 30px 28px; background: #DBE5EC; color: #1B1D1F; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<span class="tape"></span>
+<div>
+<p class="hand" style="margin: 0; font-size: 24px; color: #1B3A5E">Shared Memory</p>
+<h3 class="serif" style="margin: 4px 0 10px; font-size: 32px; font-weight: 800; line-height: 1.05">One record, one memory.</h3>
+<p style="margin: 0; font-size: 15.5px; color: #2E3133">Lead forms, emails, WhatsApp messages, calls, quotations, sales orders and payments land in one CRM. Every agent works from it, and you get one dashboard of sales, jobs and cash, every week.</p>
+</div>
+<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 200 70" style="--d: .6s; width: 100%; max-width: 280px; overflow: visible"><path pathLength="1" d="M4 60 L40 44 L76 50 L112 28 L148 34 L196 8" fill="none" stroke="#2B4B6F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div class="ag a-mk card paper" data-in style="--d: .06s; --rot: 1.2deg; padding: 24px 22px; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B3A5E">01 · Marketing</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800"><span class="dot" aria-hidden="true"></span>Marketing agent</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">Drafts campaigns in your tone, sends them to opted-in contacts once you approve, and files every reply and sign-up.</p><span class="hand-off">Hands new leads to Sales →</span></div>
+<div class="ag a-sl card paper" data-in style="--d: .12s; --rot: -0.8deg; padding: 24px 22px; background: #D9C7A3; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B1D1F">02 · Sales</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800"><span class="dot" aria-hidden="true"></span>Sales agent</h3><p style="margin: 0; font-size: 14.5px; color: #2E2A22">Replies to new enquiries within a minute in English or Bahasa Malaysia, asks the qualifying questions, and follows up quotes until they're won or lost.</p><span class="hand-off" style="border-top-color: #A8956F; color: #4A4232">Hands won deals to Operations →</span></div>
+<div class="ag a-op card paper" data-in style="--d: .18s; --rot: 0.6deg; padding: 24px 22px; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B3A5E">03 · Operations</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800"><span class="dot" aria-hidden="true"></span>Operations agent</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">Turns a won deal or a completed form into a numbered sales order and a confirmation, in the format your customer needs, the same hour.</p><span class="hand-off">Hands open orders to Finance →</span></div>
+<div class="ag a-fn card paper" data-in style="--d: .24s; --rot: -1deg; padding: 24px 22px; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B3A5E">04 · Finance</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800"><span class="dot" aria-hidden="true"></span>Finance agent</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">Chases unpaid orders politely on a set schedule and hands settled ones to your accounting software, so your e-Invoice set-up stays where it is.</p><span class="hand-off">Flags overdue accounts to you →</span></div>
+<div class="ag a-sp card paper" data-in style="--d: .3s; --rot: 0.9deg; padding: 24px 22px; background: #FFFDF8; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B3A5E">05 · Support</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800"><span class="dot" aria-hidden="true"></span>Support agent</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">Answers customer questions on WhatsApp and email from your own policies and order records, day or night. Anything it can't answer goes to a person.</p><span class="hand-off">Phone calls? That's the <a href="/services/ai-automations/ai-voice-receptionist" style="font-weight: 600">AI Voice Receptionist →</a></span></div>
+</div>
+</div>
+</section>
 
 <section id="flow" class="sec" data-prog style="--p: 1; padding-top: 104px; padding-bottom: 112px">
 <div class="wrap">
 <div class="split" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: end; margin-bottom: 56px">
 <div>
-<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1B3A5E">The Flow · Scroll to Run It</p>
-<h2 class="serif h2" data-in style="margin: 0; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">One lead, <span style="font-style: italic; color: #2B4B6F">five stations.</span></h2>
+<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1B3A5E">How They Work Together · Scroll to Run It</p>
+<h2 class="serif h2" data-in style="margin: 0; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">One sign-up, <span style="font-style: italic; color: #2B4B6F">five hand-offs.</span></h2>
 </div>
-<p data-in style="--d: .1s; margin: 0; color: #3A3D3F">Follow a single lead from the first campaign email to a settled sales order. Each station is one tool; the CRM keeps the record the whole way through.</p>
+<p data-in style="--d: .1s; margin: 0; color: #3A3D3F">A training provider runs a public course. Follow one participant from the first campaign email to the day of the course. Each agent picks up where the last one stopped.</p>
 </div>
 <div class="conv conv-wrap" style="position: relative">
 <div class="trk-h" aria-hidden="true" style="position: relative; height: 40px; margin-bottom: 18px">
 <span style="position: absolute; left: 0; right: 0; top: 18px; height: 4px; background: repeating-linear-gradient(90deg, #CFC6B4 0 10px, transparent 10px 18px)"></span>
 <span style="position: absolute; left: 0; top: 18px; height: 4px; width: calc(var(--p, 1) * 100%); background: #2B4B6F; border-radius: 2px"></span>
-<span class="chip" style="position: absolute; width: 120px; height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 12px 0 6px; border-radius: 999px; background: #1B1D1F; color: #F4EFE4; box-shadow: 0 10px 20px -10px rgba(0,0,0,.7)"><span style="width: 24px; height: 24px; border-radius: 50%; background: #799FC3"></span><span class="lbl" style="font-size: 13px; font-weight: 600">A new lead</span></span>
+<span class="chip" style="position: absolute; width: 120px; height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 12px 0 6px; border-radius: 999px; background: #1B1D1F; color: #F4EFE4; box-shadow: 0 10px 20px -10px rgba(0,0,0,.7)"><span style="width: 24px; height: 24px; border-radius: 50%; background: #799FC3"></span><span class="lbl" style="font-size: 13px; font-weight: 600">A sign-up</span></span>
 </div>
 <div class="trk-v" aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 44px">
 <span style="position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: repeating-linear-gradient(180deg, #CFC6B4 0 10px, transparent 10px 18px)"></span>
@@ -198,34 +233,12 @@ a{color:inherit}
 <span class="chip" style="position: absolute; height: 44px; border-radius: 999px; background: #1B1D1F; display: flex; align-items: center"><span style="width: 26px; height: 26px; border-radius: 50%; background: #799FC3"></span></span>
 </div>
 <div class="stations" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
-<div class="st paper" data-at-v="0.05" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">01</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Campaign Agent</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">Emails to your opted-in list. You approve every draft before it sends.</p></div>
-<div class="st paper" data-at-v="0.25" style="margin-top: 40px; padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">02</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Lead Follow-Up</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">Every reply answered within a minute, qualified, and routed.</p></div>
-<div class="st paper" data-at-v="0.45" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">03</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Full Backend CRM</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">One record per customer, from first click to final payment.</p></div>
-<div class="st paper" data-at-v="0.65" style="margin-top: 40px; padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">04</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Sales Order Generator</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">A won deal or a completed form becomes a numbered sales order, sent the same hour.</p></div>
-<div class="st paper" data-at-v="0.85" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">05</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Estimate Follow-Up</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">Open quotes and unpaid orders chased until settled, then handed to your accounting.</p></div>
+<div class="st paper" data-at-v="0.05" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">01</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Marketing</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">You approve the campaign. It goes to past participants who opted in.</p></div>
+<div class="st paper" data-at-v="0.25" style="margin-top: 40px; padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">02</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Sales</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">A reader asks about group rates. The answer arrives in a minute, and they sign up.</p></div>
+<div class="st paper" data-at-v="0.45" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">03</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Operations</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">The sign-up form becomes a numbered sales order for the participant's company.</p></div>
+<div class="st paper" data-at-v="0.65" style="margin-top: 40px; padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">04</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Finance</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">The unpaid order is chased until settled, then handed to your accounting.</p></div>
+<div class="st paper" data-at-v="0.85" style="padding: 20px 16px; background: #FFFDF8"><span class="stn serif" style="display: block; font-size: 34px; font-weight: 800; font-style: italic; color: #2B4B6F; line-height: 1">05</span><h3 class="serif" style="margin: 8px 0 6px; font-size: 19px; font-weight: 800; line-height: 1.15">Support</h3><p style="margin: 0; font-size: 13.5px; opacity: .85">Venue, parking and certificate questions answered on WhatsApp before the day.</p></div>
 </div>
-</div>
-</div>
-</section>
-
-<section class="sec" style="padding-top: 104px; padding-bottom: 112px; background: #2B4B6F; color: #F4EFE4">
-<div class="wrap">
-<p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #BDD3E5">Inside the Automation</p>
-<h2 class="serif h2" data-in style="margin: 0 0 44px; max-width: 760px; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">Five parts, <span style="font-style: italic; color: #BDD3E5">one record.</span></h2>
-<div class="kit" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(150px, auto); gap: 18px">
-<div class="hub card paper" data-in style="--rot: -1deg; grid-row: span 2; padding: 30px 28px; background: #DBE5EC; color: #1B1D1F; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
-<span class="tape"></span>
-<div>
-<p class="hand" style="margin: 0; font-size: 24px; color: #1B3A5E">The Hub</p>
-<h3 class="serif" style="margin: 4px 0 10px; font-size: 32px; font-weight: 800; line-height: 1.05">Full Backend CRM</h3>
-<p style="margin: 0; font-size: 15.5px; color: #2E3133">Lead forms, emails, messages, calls, quotations, sales orders and payments feed one database. Follow-ups, reminders and approvals trigger on their own, and the owner gets one dashboard: sales, jobs and cash, every week.</p>
-</div>
-<svg class="draw" data-in="draw" aria-hidden="true" viewBox="0 0 200 70" style="--d: .6s; width: 100%; max-width: 280px; overflow: visible"><path pathLength="1" d="M4 60 L40 44 L76 50 L112 28 L148 34 L196 8" fill="none" stroke="#2B4B6F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</div>
-<div class="card paper" data-in style="--d: .08s; --rot: 1.2deg; padding: 24px 22px; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B3A5E">New</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800">Campaign Agent</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">Writes the campaign in your tone, sends it to opted-in contacts once you approve, and files every reply and sign-up in the CRM.</p></div>
-<div class="card paper" data-in style="--d: .14s; --rot: -0.8deg; padding: 24px 22px; background: #D9C7A3; color: #1B1D1F"><p class="hand" style="margin: 0; font-size: 22px; color: #1B1D1F">New</p><h3 class="serif" style="margin: 2px 0 6px; font-size: 22px; font-weight: 800">Sales Order Confirmation</h3><p style="margin: 0; font-size: 14.5px; color: #2E2A22">Turns a won deal or a completed form into a numbered sales order, sends it, and logs it against the customer.</p></div>
-<div class="card paper" data-in style="--d: .2s; --rot: 0.6deg; padding: 24px 22px; color: #1B1D1F"><h3 class="serif" style="margin: 0 0 6px; font-size: 22px; font-weight: 800">Lead Follow-Up</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">A reply within a minute in English or Bahasa Malaysia, two or three qualifying questions, and a timed sequence that stops when they answer.</p></div>
-<div class="card paper" data-in style="--d: .32s; --rot: 0.9deg; padding: 24px 22px; background: #FFFDF8; color: #1B1D1F"><h3 class="serif" style="margin: 0 0 6px; font-size: 22px; font-weight: 800">Estimate Follow-Up</h3><p style="margin: 0; font-size: 14.5px; color: #3A3D3F">A check-in on day two, an answer to the usual questions on day five, a last word on day ten. Won, lost or pending, in one list. Paid orders hand off to your accounting software, so your e-Invoice set-up stays where it is.</p></div>
 </div>
 </div>
 </section>
@@ -234,17 +247,17 @@ a{color:inherit}
 <div class="split" style="display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center">
 <div class="paper" data-in style="--rot: -1.5deg; padding: 40px 36px 34px; background: #FFFDF8; background-image: repeating-linear-gradient(transparent 0, transparent 31px, #EEE8DA 31px, #EEE8DA 32px)">
 <span class="tape"></span>
-<p class="hand" style="margin: 0 0 10px; font-size: 28px; font-weight: 700; color: #1B3A5E">For Example</p>
-<p class="serif" style="margin: 0; font-size: 21px; line-height: 1.5; font-weight: 600">A training provider runs a public course. A campaign goes to past participants who opted in. Sign-ups arrive through a form, and each one becomes a numbered sales order within minutes, ready for the participant's company. Unpaid orders are chased on their own, and the owner sees every seat filled on one dashboard.</p>
+<p class="hand" style="margin: 0 0 10px; font-size: 28px; font-weight: 700; color: #1B3A5E">Why Agents</p>
+<p class="serif" style="margin: 0; font-size: 21px; line-height: 1.5; font-weight: 600">A single automation does one task. An agent owns a job: it reads the customer's history, decides the next step within the rules you set, and passes the work on. You start with the agents you need and add the rest later.</p>
 </div>
 <div>
 <p class="hand" data-in style="margin: 0 0 4px; font-size: 26px; color: #1B3A5E">You Stay in Control</p>
-<h2 class="serif h2" data-in style="margin: 0 0 28px; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">Automated, <span style="font-style: italic; color: #2B4B6F">never unattended.</span></h2>
+<h2 class="serif h2" data-in style="margin: 0 0 28px; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em">Autonomous, <span style="font-style: italic; color: #2B4B6F">never unattended.</span></h2>
 <div class="rules" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-<div class="paper" data-in="drop" style="--d: .05s; --rot: 1.5deg; padding: 20px 20px; background: #DBE5EC"><p style="margin: 0; font-size: 15px; font-weight: 600">You approve every campaign before it goes out.</p></div>
-<div class="paper" data-in="drop" style="--d: .15s; --rot: -1.2deg; padding: 20px 20px"><p style="margin: 0; font-size: 15px; font-weight: 600">Only opted-in contacts are emailed, and every email carries a way to stop.</p></div>
-<div class="paper" data-in="drop" style="--d: .25s; --rot: -0.8deg; padding: 20px 20px"><p style="margin: 0; font-size: 15px; font-weight: 600">Every sales order is numbered and logged against the customer.</p></div>
-<div class="paper" data-in="drop" style="--d: .35s; --rot: 1deg; padding: 20px 20px; background: #D9C7A3"><p style="margin: 0; font-size: 15px; font-weight: 600">Sales orders hand off to your accounting software; invoices stay there.</p></div>
+<div class="paper" data-in="drop" style="--d: .05s; --rot: 1.5deg; padding: 20px 20px; background: #DBE5EC"><p style="margin: 0; font-size: 15px; font-weight: 600">You approve every campaign, and anything outside the rules you set.</p></div>
+<div class="paper" data-in="drop" style="--d: .15s; --rot: -1.2deg; padding: 20px 20px"><p style="margin: 0; font-size: 15px; font-weight: 600">Each agent says it's automated, and hands hard questions to a person.</p></div>
+<div class="paper" data-in="drop" style="--d: .25s; --rot: -0.8deg; padding: 20px 20px"><p style="margin: 0; font-size: 15px; font-weight: 600">Only opted-in contacts are emailed, and every email carries a way to stop.</p></div>
+<div class="paper" data-in="drop" style="--d: .35s; --rot: 1deg; padding: 20px 20px; background: #D9C7A3"><p style="margin: 0; font-size: 15px; font-weight: 600">Every action is logged in the CRM. Invoices stay in your accounting software.</p></div>
 </div>
 </div>
 </div>
@@ -252,8 +265,8 @@ a{color:inherit}
 
 <section class="wrap sec cta" style="padding-top: 96px; padding-bottom: 120px; border-top: 2px dashed #CFC6B4; text-align: center">
 <p class="hand" data-in style="margin: 0 0 6px; font-size: 28px; color: #1B3A5E">Next Step</p>
-<h2 class="serif" data-in style="--d: .1s; margin: 0; font-size: clamp(46px, 6.6vw, 96px); line-height: 0.98; font-weight: 800; letter-spacing: -0.03em">Take the paperwork <span style="font-style: italic; color: #2B4B6F">off the desk.</span></h2>
-<p data-in style="--d: .2s; margin: 22px auto 36px; max-width: 560px; font-size: 19px; color: #3A3D3F">Contact us for more details. Tell us how you sell today and which systems you run.</p>
+<h2 class="serif" data-in style="--d: .1s; margin: 0; font-size: clamp(46px, 6.6vw, 96px); line-height: 0.98; font-weight: 800; letter-spacing: -0.03em">Hand the busywork <span style="font-style: italic; color: #2B4B6F">to the agents.</span></h2>
+<p data-in style="--d: .2s; margin: 22px auto 36px; max-width: 560px; font-size: 19px; color: #3A3D3F">Contact us for more details. Tell us where the work piles up today and which systems you run.</p>
 <a href="https://tally.so/r/kblXdJ" class="btn" data-in="drop" style="--d: .35s; --rot: -2deg; display: inline-block; background: #2B4B6F; color: #FFFFFF; padding: 18px 32px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 18px">Send an enquiry</a>
 <p data-in style="--d: .45s; margin: 28px 0 0; font-size: 15px"><a href="/services/ai-automations/ai-voice-receptionist" style="font-weight: 600">AI Voice Receptionist →</a> <span style="color: #8A8D8F">·</span> <a href="/services/ai-automations/personal" style="font-weight: 600">Personal receptionist →</a></p>
 </section>
@@ -273,7 +286,7 @@ a{color:inherit}
 <span style="display: flex; align-items: center; gap: 10px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32" aria-hidden="true" focusable="false"><path d="M34.93 32.30 L47.01 25.32 L47.01 17.42 L28.09 28.35ZM50.00 41.00 L56.49 37.25 L56.49 29.35 L43.16 37.05ZM80.49 32.90 L80.49 75.60 L87.33 71.65 L87.33 28.95ZM20.21 75.60 L27.05 71.65 L27.05 65.69 L20.21 43.69ZM50.35 93.00 L57.36 88.95 L77.15 77.52 L77.15 69.63 L57.19 81.15 L57.19 71.65 L71.56 63.35 L71.56 55.45 L57.19 63.75 L57.19 54.25 L77.15 42.72 L77.15 34.82 L57.71 46.05 L50.35 50.30ZM42.12 60.72 L39.82 53.32 L29.88 47.58 L42.12 86.96Z" fill="#BDD3E5"/><path d="M42.81 13.79 L47.54 16.52 L47.56 16.54 L47.59 16.56 L47.61 16.58 L47.64 16.61 L47.66 16.63 L47.67 16.66 L47.69 16.69 L47.70 16.72 L47.70 16.76 L47.71 16.79 L47.71 16.81 L47.71 22.28 L65.07 32.30 L69.80 29.57 L69.82 29.55 L69.85 29.54 L69.89 29.53 L69.92 29.53 L69.95 29.52 L69.98 29.52 L70.02 29.53 L70.05 29.53 L70.08 29.54 L70.11 29.55 L70.13 29.57 L72.78 31.09 L77.68 33.92 L77.70 33.94 L77.73 33.96 L77.75 33.98 L77.78 34.01 L77.80 34.03 L77.81 34.06 L77.83 34.09 L77.84 34.12 L77.84 34.16 L77.85 34.19 L77.85 34.21 L77.85 42.93 L77.85 42.96 L77.84 42.99 L77.84 43.02 L77.83 43.05 L77.81 43.08 L77.80 43.11 L77.78 43.14 L77.75 43.16 L77.73 43.19 L77.70 43.21 L77.68 43.22 L72.95 45.95 L72.95 66.00 L77.68 68.73 L77.70 68.74 L77.73 68.76 L77.75 68.78 L77.78 68.81 L77.80 68.84 L77.81 68.86 L77.83 68.89 L77.84 68.93 L77.84 68.96 L77.85 68.99 L77.85 69.02 L77.85 74.48 L79.79 75.60 L79.79 32.90 L72.43 28.65 L42.81 11.55ZM12.67 71.65 L19.51 75.60 L19.51 40.80 L42.81 54.25 L42.81 89.05 L49.65 93.00 L49.65 50.30 L12.67 28.95ZM41.87 88.51 L28.99 47.07 L20.46 42.15 L33.34 83.58Z" fill="#E2E9EF"/><path d="M80.14 32.30 L86.98 28.35 L79.97 24.30 L50.00 7.00 L43.16 10.95 L72.78 28.05ZM20.56 24.00 L27.40 27.95 L46.67 16.82 L39.83 12.87ZM19.86 24.40 L13.02 28.35 L50.00 49.70 L57.36 45.45 L76.81 34.22 L69.97 30.27 L50.00 41.80 L41.77 37.05 L56.15 28.75 L49.31 24.80 L34.93 33.10ZM64.38 50.90 L57.88 54.65 L57.88 62.55 L71.22 54.85ZM69.97 65.08 L57.88 72.05 L57.88 79.95 L76.81 69.02Z" fill="#799FC3"/></svg><span class="serif" style="font-weight: 800; font-size: 23px">NEEL <span style="font-weight: 600; color: #BDD3E5">Advisory</span></span></span>
 <button type="button" data-menu-toggle aria-label="Close menu" style="min-height: 44px; padding: 0 18px; border: 1.5px solid #F4EFE4; border-radius: 999px; background: transparent; color: #F4EFE4; font: 600 14px Inter, sans-serif; cursor: pointer">Close</button>
 </div>
-<nav aria-label="Mobile" class="mnav"><a href="/" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.05s">Home</a><details class="mnav-grp menu-in" style="animation-delay: 0.1s"><summary style="color: #F4EFE4">Strategy &amp; Advisory<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/strategy-advisory" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/strategy-advisory#strategy-financial" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Strategy &amp; Financial</a><a href="/services/strategy-advisory#operations-systems" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Operations &amp; Systems</a><a href="/services/strategy-advisory#delivery-performance" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Delivery &amp; Performance</a></div></details><details class="mnav-grp menu-in" style="animation-delay: 0.15s" open><summary style="color: #BDD3E5; font-style: italic">AI &amp; Automations<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/ai-automations" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/ai-automations/operation-automation" class="mnav-sub" aria-current="page" style="color: #BDD3E5; text-decoration: none">Operation Automation</a><a href="/services/ai-automations/ai-voice-receptionist" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">AI Voice Receptionist</a><a href="/services/ai-automations/personal" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Personal receptionist</a></div></details><a href="/how-we-work" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.2s">How we work</a><a href="/about" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.25s">About</a></nav>
+<nav aria-label="Mobile" class="mnav"><a href="/" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.05s">Home</a><details class="mnav-grp menu-in" style="animation-delay: 0.1s"><summary style="color: #F4EFE4">Strategy &amp; Advisory<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/strategy-advisory" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/strategy-advisory#strategy-financial" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Strategy &amp; Financial</a><a href="/services/strategy-advisory#operations-systems" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Operations &amp; Systems</a><a href="/services/strategy-advisory#delivery-performance" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Delivery &amp; Performance</a></div></details><details class="mnav-grp menu-in" style="animation-delay: 0.15s" open><summary style="color: #BDD3E5; font-style: italic">AI &amp; Automations<span class="mnav-chev" aria-hidden="true"></span></summary><div class="mnav-subs"><a href="/services/ai-automations" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Overview</a><a href="/services/ai-automations/agentic-automation" class="mnav-sub" aria-current="page" style="color: #BDD3E5; text-decoration: none">Agentic AI Automation</a><a href="/services/ai-automations/ai-voice-receptionist" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">AI Voice Receptionist</a><a href="/services/ai-automations/personal" class="mnav-sub" style="color: #E2E9EF; text-decoration: none">Personal receptionist</a></div></details><a href="/how-we-work" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.2s">How we work</a><a href="/about" class="menu-in mnav-top" style="color: #F4EFE4; text-decoration: none; animation-delay: 0.25s">About</a></nav>
 <div class="menu-in" style="margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; gap: 14px; animation-delay: .3s">
 <a href="tel:+60360432474" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #F4EFE4; color: #1B1D1F; padding: 15px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; text-align: center"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="flex:none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="currentColor"/></svg>Call our AI receptionist</a>
 <a href="https://tally.so/r/kblXdJ" style="border: 1.5px solid #F4EFE4; color: #F4EFE4; padding: 13.5px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; text-align: center">Send an enquiry</a>
