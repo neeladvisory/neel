@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Aiman Azhan;;;
+FN:Aiman Azhan
+ORG:NEEL Advisory PLT
+TITLE:Solutions Partner
+TEL;TYPE=WORK,VOICE:+60360432474
+TEL;TYPE=CELL,VOICE:+60122432526
+EMAIL;TYPE=INTERNET,WORK:support@neeladvisory.my
+EMAIL;TYPE=INTERNET,HOME:me@aimanazhan.my
+URL:https://neeladvisory.my
+END:VCARD
