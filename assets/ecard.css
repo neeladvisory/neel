@@ -2,7 +2,7 @@
 @font-face{font-family:'Inter';src:url(/assets/fonts/inter.woff2) format('woff2');font-weight:100 900;font-display:swap}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#0E231B;color:#241A14;font-family:Inter,system-ui,sans-serif;min-height:100vh;min-height:100dvh}
+body{margin:0;background:#000;color:#241A14;font-family:Inter,system-ui,sans-serif;min-height:100vh;min-height:100dvh}
 a{color:inherit}
 .page{max-width:480px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:16px}
 .stage{container-type:inline-size;perspective:1400px;--u:calc(100cqw/1020)}
