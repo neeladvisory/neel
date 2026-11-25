@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Hakim Shaisham;;;
+FN:Hakim Shaisham
+ORG:NEEL Advisory PLT
+TITLE:Solutions Partner
+TEL;TYPE=WORK,VOICE:+60360432474
+TEL;TYPE=CELL,VOICE:+60186959795
+EMAIL;TYPE=INTERNET,WORK:support@neeladvisory.my
+EMAIL;TYPE=INTERNET,HOME:hakimshaisham02@gmail.com
+URL:https://neeladvisory.my
+END:VCARD
