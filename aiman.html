@@ -20,15 +20,38 @@
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/ecard.css">
+<script src="/assets/ecard.js" defer></script>
 </head>
 <body>
 <main class="page">
-<div class="card" role="img" aria-label="NEEL Advisory business card">
+<div class="stage">
+<div class="flip" id="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Business card, front. Tap or press Enter to flip it over.">
+<div class="face front">
 <img class="glow" src="/assets/neel-cube-light.svg" alt="">
 <div class="mark">
-<div class="name">NEEL <span>Advisory</span></div>
+<div class="wm">NEEL <span>Advisory</span></div>
+<div class="reg">NEEL Advisory PLT &nbsp;·&nbsp; 202604002734 (LLP0047979-LGN) &nbsp;·&nbsp; Registered in Malaysia</div>
 </div>
 </div>
+<div class="face back">
+<div class="top">
+<div class="who">
+<div class="lockup"><img src="/assets/neel-cube.svg" alt=""><div>NEEL <span>Advisory</span></div></div>
+<div class="id"><div class="nm">Aiman Azhan</div><div class="tt">Solutions Partner</div></div>
+</div>
+<div class="qr"><img src="/assets/ecard/qr-cube.svg" alt="QR code to neeladvisory.my"><div>neeladvisory.my</div></div>
+</div>
+<div class="bottom">
+<div class="rule"></div>
+<div class="cols">
+<div><div class="lab">Office</div><div class="kv"><b>T</b><span>+603 6043 2474</span><b>E</b><span>support@neeladvisory.my</span></div></div>
+<div><div class="lab">Direct</div><div class="kv"><b>M</b><span>+6012 243 2526</span><b>E</b><span>me@aimanazhan.my</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Tap the card to flip it, or drag to turn it</p>
 <div class="sheet">
 <div>
 <h1>Aiman Azhan</h1>

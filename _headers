@@ -12,5 +12,8 @@
 /aiman
   X-Robots-Tag: noindex
 
+/hakim
+  X-Robots-Tag: noindex
+
 /assets/ecard/*.vcf
   Content-Type: text/vcard; charset=utf-8
